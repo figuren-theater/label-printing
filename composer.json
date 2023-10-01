@@ -1,0 +1,66 @@
+{
+    "name": "figuren-theater/project_urlname",
+    "description": "... like the figuren.theater WordPress Multisite network.",
+    "license": "GPL-3.0+",
+    "type": "wordpress-muplugin",
+    "keywords": [
+        "wordpress",
+        "wordpress-muplugin"
+    ],
+    "authors": [
+        {
+            "name": "figuren.theater",
+            "email": "info@figuren.theater"
+        },
+        {
+            "name": "Carsten Bach",
+            "email": "mail@carsten-bach.de",
+            "homepage": "https://carsten-bach.de",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://websites.fuer.figuren.theater",
+    "support": {
+        "email": "info@figuren.theater",
+        "issues": "https://github.com/figuren-theater/project_urlname/issues",
+        "source": "https://github.com/figuren-theater/project_urlname"
+    },
+    "require-dev": {
+        "figuren-theater/code-quality": "*"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/figuren-theater/ft-options"
+        },
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "inc/"
+        ],
+        "files": [
+            "inc/namespace.php"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "koodimonni/composer-dropin-installer": true,
+            "figuren-theater/altis-core": true,
+            "phpstan/extension-installer": true,
+            "ergebnis/composer-normalize": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "figuren-theater/ft-core": true
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "altis": {
+            "install-overrides": []
+        }
+    }
+}

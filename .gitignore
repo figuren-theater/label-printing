@@ -1,0 +1,21 @@
+/build/
+/node_modules
+/vendor
+*.sql
+*.tar.gz
+*.zip
+/wiki
+.vscode
+
+# Generated via bin/transform-readme.php
+/readme.txt
+/.wp-env.override.json
+
+# misc
+.DS_Store
+Thumbs.db
+
+# is created during composer install,
+# when package is tested
+# and not running within ft-platform
+/wp-content/
