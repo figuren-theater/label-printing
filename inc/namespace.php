@@ -5,9 +5,7 @@
  * @package figuren-theater/label-printing
  */
 
-namespace Figuren_Theater\label_printing;
-
-use Altis;
+namespace Figuren_Theater\Label_Printing;
 
 /**
  * Register module.
@@ -15,21 +13,7 @@ use Altis;
  * @return void
  */
 function register() :void {
-
-	$default_settings = [
-		'enabled' => true, // Needs to be set.
-	];
-	$options = [
-		'defaults' => $default_settings,
-	];
-
-	Altis\register_module(
-		'label-printing',
-		DIRECTORY,
-		'label_printing',
-		$options,
-		__NAMESPACE__ . '\\bootstrap'
-	);
+	Patterns\bootstrap();
 }
 
 /**

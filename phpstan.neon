@@ -5,15 +5,12 @@ parameters:
     inferPrivatePropertyTypeFromConstructor: true
     paths:
         - inc/
+        - src/
         - plugin.php
     excludePaths:
+        analyseAndScan:
+            - build/
+            - node_modules/
         analyse:
             - vendor/
-            # "/wp-content/" is created during composer install,
-            # when package is tested
-            # and not running within ft-platform
-            - wp-content/
-            - tests/
-    ignoreErrors:
-        # Find a nicer way instead of ignoring this Error on every ft-module
-        - '#Function Altis\\register_module not found\.#'
+

@@ -1,11 +1,11 @@
 {
     "name": "figuren-theater/label-printing",
-    "description": "... like the figuren.theater WordPress Multisite network.",
+    "description": "Create printable labels with blocks.",
     "license": "GPL-3.0+",
-    "type": "wordpress-muplugin",
+    "type": "wordpress-plugin",
     "keywords": [
         "wordpress",
-        "wordpress-muplugin"
+        "wordpress-plugin"
     ],
     "authors": [
         {
@@ -29,10 +29,6 @@
         "figuren-theater/code-quality": "*"
     },
     "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/figuren-theater/ft-options"
-        },
         {
             "type": "composer",
             "url": "https://wpackagist.org"
