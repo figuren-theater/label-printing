@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for project_name Documentation module.
+ * Tests for label_printing Documentation module.
  *
  * phpcs:disable WordPress.Files, WordPress.NamingConventions, PSR1.Classes.ClassDeclaration.MissingNamespace, HM.Functions.NamespacedFunctions
  */

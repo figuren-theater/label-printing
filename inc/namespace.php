@@ -1,11 +1,11 @@
 <?php
 /**
- * Figuren_Theater project_name.
+ * Figuren_Theater label_printing.
  *
- * @package figuren-theater/project_urlname
+ * @package figuren-theater/label-printing
  */
 
-namespace Figuren_Theater\project_name;
+namespace Figuren_Theater\label_printing;
 
 use Altis;
 
@@ -24,9 +24,9 @@ function register() :void {
 	];
 
 	Altis\register_module(
-		'project_urlname',
+		'label-printing',
 		DIRECTORY,
-		'project_name',
+		'label_printing',
 		$options,
 		__NAMESPACE__ . '\\bootstrap'
 	);

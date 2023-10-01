@@ -2,7 +2,7 @@
 /**
  * PHPUnit bootstrap file.
  *
- * @package project_name
+ * @package label_printing
  */
 
 define( 'TESTS_PLUGIN_DIR', dirname( __DIR__ ) );
@@ -33,7 +33,7 @@ require $_test_root . '/includes/functions.php';
  * @param array $active_plugins Active plugins.
  * @return array Forced active plugins.
  */
-function project_name_filter_active_plugins_for_phpunit( $active_plugins ) {
+function label_printing_filter_active_plugins_for_phpunit( $active_plugins ) {
 	if ( defined( 'WP_TEST_ACTIVATED_PLUGINS' ) ) {
 		$forced_active_plugins = preg_split( '/\s*,\s*/', WP_TEST_ACTIVATED_PLUGINS );
 	}
@@ -46,19 +46,19 @@ function project_name_filter_active_plugins_for_phpunit( $active_plugins ) {
 	return $active_plugins;
 }
 
-tests_add_filter( 'site_option_active_sitewide_plugins', 'project_name_filter_active_plugins_for_phpunit' );
-tests_add_filter( 'option_active_plugins', 'project_name_filter_active_plugins_for_phpunit' );
+tests_add_filter( 'site_option_active_sitewide_plugins', 'label_printing_filter_active_plugins_for_phpunit' );
+tests_add_filter( 'option_active_plugins', 'label_printing_filter_active_plugins_for_phpunit' );
 
 /**
  * Ensure plugin is always activated.
  *
  * @return void
  */
-function project_name_unit_test_load_plugin_file() {
+function label_printing_unit_test_load_plugin_file() {
 	require_once TESTS_PLUGIN_DIR . '/plugin.php';
 }
 
-tests_add_filter( 'muplugins_loaded', 'project_name_unit_test_load_plugin_file' );
+tests_add_filter( 'muplugins_loaded', 'label_printing_unit_test_load_plugin_file' );
 
 /*
  * Load WP CLI. Its test bootstrap file can't be required as it will load

@@ -1,11 +1,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/figuren-theater/project_urlname">
+  <a href="https://github.com/figuren-theater/label-printing">
     <img src="https://raw.githubusercontent.com/figuren-theater/logos/main/favicon.png" alt="figuren.theater Logo" width="100" height="100">
   </a>
 
-  <h1 align="center">figuren.theater | project_name</h1>
+  <h1 align="center">figuren.theater | label_printing</h1>
 
   <p align="center">
     ... like the WordPress Multisite network for puppeteers - <a href="https://figuren.theater">figuren.theater</a>.
@@ -27,7 +27,7 @@
 This is the long desc
 
 * [x] *list closed tracking-issues or `docs` files here*
-* [ ] Do you have any [ideas](https://github.com/figuren-theater/project_urlname/issues/new) ?
+* [ ] Do you have any [ideas](https://github.com/figuren-theater/label-printing/issues/new) ?
 
 ## Background & Motivation
 
@@ -37,7 +37,7 @@ This is the long desc
 
 1. Install via command line
     ```sh
-    composer require figuren-theater/project_urlname
+    composer require figuren-theater/label-printing
     ```
 
 ## Usage
@@ -87,13 +87,13 @@ Don't forget to give the project a star! Thanks again!
 ## Versioning
 
 We use [Semantic Versioning](http://semver.org/) for versioning. For the versions
-available, see the [tags on this repository](https://github.com/figuren-theater/project_urlname/tags).
+available, see the [tags on this repository](https://github.com/figuren-theater/label-printing/tags).
 
 ## Authors
 
   - **Carsten Bach** - *Provided idea & code* - [figuren.theater/crew](https://figuren.theater/crew/)
 
-See also the list of [contributors](https://github.com/figuren-theater/project_urlname/contributors)
+See also the list of [contributors](https://github.com/figuren-theater/label-printing/contributors)
 who participated in this project.
 
 ## License
