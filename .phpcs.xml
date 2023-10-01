@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="project_urlname">
-	<description>Coding standards for project_urlname</description>
+<ruleset name="label-printing">
+	<description>Coding standards for label-printing</description>
 
 	<file>.</file>
 

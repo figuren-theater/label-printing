@@ -2,15 +2,15 @@
 /**
  * Figuren_Theater ...
  *
- * @package figuren-theater/project_urlname
+ * @package figuren-theater/label-printing
  */
 
-namespace Figuren_Theater\project_name;
+namespace Figuren_Theater\label_printing;
 
 /**
  * Figuren_Theater ...
  *
- * @package figuren-theater/project_urlname
+ * @package figuren-theater/label-printing
  */
 class Example {
 

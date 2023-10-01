@@ -37,8 +37,8 @@ define( 'ARRAY_N', 'ARRAY_N' );
 define( 'STYLESHEETPATH', '/app/themes/child/' );
 define( 'TEMPLATEPATH', '/app/themes/parent/' );
 
-// project_name plugin.
-define( 'project_name_VERSION', '0.1.0-alpha' );
-define( 'project_name_PLUGIN_FILE', '/app/project_urlname/plugin.php' );
-define( 'project_name_PLUGIN_DIR', '/app/project_urlname' );
-define( 'project_name_PLUGIN_URL', 'https://example.com/wp-content/plugins/project_urlname/' );
+// label_printing plugin.
+define( 'label_printing_VERSION', '0.1.0-alpha' );
+define( 'label_printing_PLUGIN_FILE', '/app/label-printing/plugin.php' );
+define( 'label_printing_PLUGIN_DIR', '/app/label-printing' );
+define( 'label_printing_PLUGIN_URL', 'https://example.com/wp-content/plugins/label-printing/' );
