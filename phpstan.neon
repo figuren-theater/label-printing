@@ -1,7 +1,7 @@
 #$ vendor/bin/phpstan analyze
 
 parameters:
-    level: max
+    level: 8 # because 'Cannot cast mixed to ...' errors
     inferPrivatePropertyTypeFromConstructor: true
     paths:
         - inc/

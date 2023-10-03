@@ -13,7 +13,9 @@ namespace Figuren_Theater\Label_Printing;
  * @return void
  */
 function register() :void {
-	Patterns\bootstrap();
+	Block_Styles\register();
+	Block_Variations\register();
+	Patterns\register();
 }
 
 /**
