@@ -58,5 +58,5 @@ registerBlockVariation('core/group', {
 	},
 	isActive: (blockAttributes) =>
 		blockAttributes.className === 'is-style-label-overview-portrait',
-	scope: ['inserter'],
+	scope: [],
 });

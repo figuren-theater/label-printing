@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "figuren-theater/label-printing",
+	"version": "0.1.0",
+	"title": "Label Printing",
+	"category": "widgets",
+	"icon": "grid-view",
+	"description": "Make labels now.",
+	"example": {},
+  "attributes": {
+    "wpLabelPost": {
+      "type": "number",
+      "default": 0
+    },
+    "labelHeight": {
+      "type": "number",
+      "default": 0
+    },
+    "labelWidth": {
+      "type": "number",
+      "default": 0
+    },
+    "align": {
+      "type": "string",
+      "default": "wide"
+    }
+  },
+  "supports": {
+		"html": false,
+    "reusable": false,
+    "multiple": false,
+    "align": ["wide"]
+	},
+  "textdomain": "label-printing",
+	"editorScript": "file:label-printing.js",
+	"editorStyle": "file:./label-printing.css",
+	"style": "file:./style-label-printing.css"
+}
