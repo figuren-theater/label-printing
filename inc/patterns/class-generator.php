@@ -97,6 +97,7 @@ class Generator {
 	 */
 	protected function calculate() : void {
 
+		// Determine label dimensions based on orientation.
 		switch ( $this->label->orientation ) {
 			case 'portrait':
 				$width  = $this->label->width;
@@ -110,6 +111,7 @@ class Generator {
 				break;
 		}
 
+		// Calculate the number of rows and columns that fit on an A4 sheet.
 		$a4_height = 297 - ( 2 * $this->label->a4_border_tb );
 		$a4_width  = 210 - ( 2 * $this->label->a4_border_lr );
 

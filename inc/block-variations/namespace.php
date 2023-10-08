@@ -10,15 +10,13 @@ namespace Figuren_Theater\Label_Printing\Block_Variations;
 use Figuren_Theater\Label_Printing;
 
 /**
- * Register module.
+ * Register the Label Printing block-variations.
  *
  * @return void
  */
 function register() :void {
 		\add_action( 'init', __NAMESPACE__ . '\\register_assets', 5 );
-
 		\add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_assets' );
-
 }
 
 /**
@@ -27,17 +25,13 @@ function register() :void {
  * @return void
  */
 function register_assets() :void {
-
-	\array_map(
-		__NAMESPACE__ . '\\register_asset',
-		get_assets()
-	);
+	\array_map( __NAMESPACE__ . '\\register_asset', get_assets() );
 }
 
 /**
  * Get backend-only editor assets.
  *
- * @return string[]
+ * @return string[] Array of asset slugs.
  */
 function get_assets() : array {
 	return [
@@ -96,10 +90,7 @@ function register_asset( string $asset ) : void {
  * @return void
  */
 function enqueue_assets() : void {
-	\array_map(
-		__NAMESPACE__ . '\\enqueue_asset',
-		get_assets()
-	);
+	\array_map( __NAMESPACE__ . '\\enqueue_asset', get_assets() );
 }
 
 /**
