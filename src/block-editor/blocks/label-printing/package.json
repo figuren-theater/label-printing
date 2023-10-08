@@ -2,7 +2,20 @@
 	"name": "label-printing",
 	"version": "0.1.0",
 	"description": "Make labels now.",
-	"author": "The WordPress Contributors",
-	"license": "GPL-2.0-or-later",
+	"author": "Carsten Bach",
+	"license": "GPL-3.0-or-later",
+	"keywords": [
+		"WordPress",
+		"Theater",
+		"Gutenberg",
+		"Blocks",
+    "Label-Printing",
+    "print.css"
+	],
+	"homepage": "https://websites.fuer.figuren.theater",
+	"repository": "git+https://github.com/figuren-theater/label-printing.git",
+	"bugs": {
+		"url": "https://github.com/figuren-theater/label-printing/issues"
+	},
 	"scripts": {}
 }

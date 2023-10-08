@@ -8,7 +8,9 @@
 		"WordPress",
 		"Theater",
 		"Gutenberg",
-		"Blocks"
+		"Blocks",
+    "Label-Printing",
+    "print.css"
 	],
 	"homepage": "https://websites.fuer.figuren.theater",
 	"repository": "git+https://github.com/figuren-theater/label-printing.git",
