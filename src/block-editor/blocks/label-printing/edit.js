@@ -22,11 +22,11 @@ import './editor.scss';
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
  *
- * @param  root0
- * @param  root0.attributes
- * @param  root0.setAttributes
- * @param  root0.isSelected
- * @param  root0.clientId
+ * @param {Object}   root0               WordPress Block
+ * @param {Array}    root0.attributes
+ * @param {Function} root0.setAttributes
+ * @param {boolean}  root0.isSelected
+ * @param {string}   root0.clientId
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
  *
@@ -193,7 +193,7 @@ export default function Edit({
 	 *
 	 * @todo #12 Create a local-only reusable-block or a ‚reusable-block light‘
 	 *
-	 * @param newId
+	 * @param {number} newId
 	 */
 	return (
 		<div {...blockProps}>
