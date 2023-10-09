@@ -14,7 +14,7 @@ use Figuren_Theater\Label_Printing\Patterns;
  *
  * Shows a printable sheet with multiple same instances of the coosen label.
  *
- * @param  array  $attributes The blocks attributes.
+ * @param  array<string, int> $attributes The blocks attributes.
  *
  * @return string
  */

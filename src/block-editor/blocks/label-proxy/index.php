@@ -20,6 +20,10 @@ function render() : string {
 
 	$post = \get_post();
 
+	if ( ! $post instanceof \WP_Post ) {
+		return '';
+	}
+
 	$blocks = \parse_blocks( $post->post_content );
 
 	foreach ( $blocks as $block ) {
@@ -32,11 +36,11 @@ function render() : string {
 
 				echo \esc_html( \apply_filters( 'the_content', \render_block( $block ) ) );
 			}
-			return \ob_get_clean();
-
-			break;
-
+			return (string) \ob_get_clean();
 		}
 	}
+
+	// If not already exited.
+	return '';
 
 }
