@@ -18,23 +18,3 @@ function register() :void {
 	Block_Variations\register();
 	Patterns\register();
 }
-
-/**
- * Bootstrap module, when enabled.
- *
- * @return void
- */
-function bootstrap() :void {
-
-	/**
-	 * Automatically load Plugins.
-	 *
-	 * @example NameSpace\bootstrap();
-	 */
-
-	/**
-	 * Load 'Best practices'.
-	 *
-	 * @example NameSpace\bootstrap();
-	 */
-}
