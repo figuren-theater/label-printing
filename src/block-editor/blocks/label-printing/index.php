@@ -27,24 +27,33 @@ function render( array $attributes ) : string {
 		return '';
 	}
 
-	// Define the pattern slug for the label.
-	$pattern_slug = 'figuren-theater/label-view-a4-' . $label->ID;
+	// Check if metadata is available via attributes.
+	if ( ! isset( $attributes['labelHeight'] ) || ! isset( $attributes['labelWidth'] ) ) {
 
-	// Get the labels measurements.
-	$meta = \get_post_meta( $label->ID, Patterns\META_KEY, true );
+		// Get the labels measurements.
+		$meta = \get_post_meta( $label->ID, Patterns\META_KEY, true );
 
-	// Check if the metadata is valid.
-	if ( ! \is_array( $meta ) || ! isset( $meta['height'] ) || ! isset( $meta['width'] ) ) {
-		return '';
+		// Check if the metadata is valid.
+		if ( ! \is_array( $meta ) || ! isset( $meta['height'] ) || ! isset( $meta['width'] ) ) {
+			return '';
+		}
+		$attributes['labelHeight'] = $meta['height'];
+		$attributes['labelWidth']  = $meta['width'];
 	}
 
 	// Generate Inline-CSS using a custom-property to set the labels printing dimensions.
 	$css = \sprintf(
 		'<style>:root { --label-printing-height:%smm;--label-printing-width:%smm; }</style>',
-		$meta['height'],
-		$meta['width'],
+		$attributes['labelHeight'],
+		$attributes['labelWidth'],
 	);
 
-	// Render the Inline-CSS and the block pattern with the specified pattern slug.
-	return $css . \do_blocks( '<!-- wp:pattern {"slug":"' . $pattern_slug . '"} -->' );
+	// Generate the pattern slug from label.
+	$pattern_slug = 'figuren-theater/label-view-a4-' . $label->ID;
+
+	// Prepare block-pattern with the specified pattern slug for rendering.
+	$pattern = \do_blocks( '<!-- wp:pattern {"slug":"' . $pattern_slug . '"} -->' );
+
+	// Render the Inline-CSS and the block pattern.
+	return $css . $pattern;
 }
