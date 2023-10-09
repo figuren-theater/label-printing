@@ -30,14 +30,22 @@
 	.wp-block-group.alignwide[class*="is-style-label-overview-"] {
 		page-break-before: always;
 		page-break-after: always;
-		margin: 14mm 9mm;
+		padding: var(--label-printing-a4-border-tb, 0) var(--label-printing-a4-border-lr, 0) !important;
+
+		/* 		// for debug
+		> .wp-block-group > * {
+			outline: 1px dashed var(--wp--preset--color--foreground, rgb(128, 128, 128));
+		} */
 	}
 }
 
 @media screen {
 
 	.wp-block-group.alignwide[class*="is-style-label-overview-"] {
+
 		box-shadow: 0.1em 0.1em 0.3em var(--wp--preset--color--primary, rgb(128, 128, 128));
+		margin-top: 5vw !important;
+		margin-bottom: 5vw !important;
 
 		> .wp-block-group > * {
 			outline: 1px dashed var(--wp--preset--color--foreground, rgb(128, 128, 128));
