@@ -8,7 +8,10 @@
 namespace Figuren_Theater\Label_Printing\Patterns;
 
 /**
- * Printing-Label definition for real-world printing.
+ * This class defines the structure of a label,
+ * encapsulating properties such as name, dimensions, orientation, and post ID.
+ *
+ * It also includes methods for inserting a new label into the database.
  */
 class Label {
 	/**

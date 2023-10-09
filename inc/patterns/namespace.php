@@ -17,7 +17,7 @@ const PATTERN_TAX_TERM = 'Label Printing';
 const STATIC_PATTERN_CATEGORY = TRANSIENT_KEY;
 
 /**
- * Register the Label Printing block-patterns.
+ * Register block-patterns.
  *
  * @return void
  */

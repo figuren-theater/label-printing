@@ -8,7 +8,7 @@
 namespace Figuren_Theater\Label_Printing\Block_Styles;
 
 /**
- * Register the Label Printing block-styles.
+ * Register block-styles.
  *
  * This function registers block styles used by the (inner workings of the) Label Printing block.
  *
@@ -20,7 +20,7 @@ function register() :void {
 
 /**
  * Bootstrap block-style registration.
- * 
+ *
  * This function registers two block styles using the WordPress core API.
  *
  * @todo #9 Use JS to register block-styles

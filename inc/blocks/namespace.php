@@ -10,7 +10,7 @@ namespace Figuren_Theater\Label_Printing\Blocks;
 use Figuren_Theater\Label_Printing;
 
 /**
- * Register the Label Printing block(s).
+ * Register block(s).
  *
  * @return void
  */
@@ -24,9 +24,7 @@ function register() :void {
  * @return void
  */
 function bootstrap() :void {
-
 	register_blocks();
-
 }
 
 /**
@@ -61,10 +59,12 @@ function register_block( string $block ) : void {
 
 	require_once Label_Printing\DIRECTORY . '/build/' . $block . '/index.php'; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
 
+	$namespaced_name = get_ns_name( $block );
+
 	\register_block_type(
 		Label_Printing\DIRECTORY . '/build/' . $block,
-		[
-			'render_callback' => __NAMESPACE__ . '\\' . get_ns_name( $block ) . '\\render',
+		[ // @phpstan-ignore-line argument.type (Seems to be missing from the stubs.)
+			'render_callback' => __NAMESPACE__ . "\\$namespaced_name\\render",
 		]
 	);
 }

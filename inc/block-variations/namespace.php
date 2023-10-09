@@ -10,7 +10,7 @@ namespace Figuren_Theater\Label_Printing\Block_Variations;
 use Figuren_Theater\Label_Printing;
 
 /**
- * Register the Label Printing block-variations.
+ * Register block-variations.
  *
  * @return void
  */

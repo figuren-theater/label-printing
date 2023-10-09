@@ -10,7 +10,10 @@ namespace Figuren_Theater\Label_Printing\Patterns;
 use WP_Post;
 
 /**
- * Handles retrieving, importing and caching of 'synced-patterns' Labels.
+ * This class handles the retrieval, import, and caching of label data.
+ *
+ * It interfaces with the WordPress database to fetch label information
+ * and provides a structured format for label objects.
  */
 class Label_Store {
 

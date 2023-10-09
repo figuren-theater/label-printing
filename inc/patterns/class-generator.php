@@ -8,7 +8,10 @@
 namespace Figuren_Theater\Label_Printing\Patterns;
 
 /**
- * Handles the automated registration of block-patterns based on a given Label.
+ * This class generates the HTML markup for the label sheet pattern based on a given label.
+ *
+ * It calculates the layout based on label dimensions, A4 sheet size, and borders,
+ * producing a printable pattern.
  */
 class Generator {
 
