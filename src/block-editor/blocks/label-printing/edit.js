@@ -201,10 +201,9 @@ export default function Edit({
 	 */
 	return (
 		<div {...blockProps}>
-			<Flex align="start">
-				<FlexItem {...innerBlocksProps}></FlexItem>
-				<FlexBlock display="inline">
-					<Flex align="end" direction="column">
+			<Flex align="start" justify="initial">
+				<FlexItem>
+					<Flex align="start" direction="column">
 						<FlexBlock>
 							<SelectControl
 								value={attributes.wpLabelPost ?? 0}
@@ -232,7 +231,8 @@ export default function Edit({
 							</p>
 						</FlexBlock>
 					</Flex>
-				</FlexBlock>
+				</FlexItem>
+				<FlexItem {...innerBlocksProps}></FlexItem>
 			</Flex>
 			{isSelectedOrChild ? (
 				<ServerSideRender
