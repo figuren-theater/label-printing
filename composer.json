@@ -1,11 +1,16 @@
 {
     "name": "figuren-theater/label-printing",
     "description": "Create printable labels with blocks.",
-    "license": "GPL-3.0+",
+    "license": "GPL-3.0-or-later",
     "type": "wordpress-plugin",
     "keywords": [
         "wordpress",
-        "wordpress-plugin"
+        "wordpress-plugin",
+        "Theater",
+        "Gutenberg",
+        "Blocks",
+        "Label-Printing",
+        "print.css"
     ],
     "authors": [
         {
@@ -28,12 +33,6 @@
     "require-dev": {
         "figuren-theater/code-quality": "*"
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://wpackagist.org"
-        }
-    ],
     "autoload": {
         "classmap": [
             "inc/"
@@ -46,17 +45,10 @@
         "allow-plugins": {
             "composer/installers": true,
             "koodimonni/composer-dropin-installer": true,
-            "figuren-theater/altis-core": true,
             "phpstan/extension-installer": true,
             "ergebnis/composer-normalize": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "figuren-theater/ft-core": true
+            "dealerdirect/phpcodesniffer-composer-installer": true
         },
         "sort-packages": true
-    },
-    "extra": {
-        "altis": {
-            "install-overrides": []
-        }
     }
 }

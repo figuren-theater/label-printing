@@ -9,24 +9,22 @@ namespace Figuren_Theater\Label_Printing\Patterns;
 
 use WP_Post;
 
-const TRANSIENT_KEY = 'label_printing';
-const META_KEY      = '_label_printing';
-
-const WP_CORE_PATTERN_TAX = 'wp_pattern_category'; // Avail. from 16.7 / 6.4 !!
-
-const PATTERN_TAX_TERM = 'Label Printing';
-
 /**
- * Handles retrieving, importing and caching of 'synced-patterns' Labels.
+ * This class handles the retrieval, import, and caching of label data.
+ *
+ * It interfaces with the WordPress database to fetch label information
+ * and provides a structured format for label objects.
  */
 class Label_Store {
 
 	/**
 	 * Get well-formed and already cached Labels.
 	 *
-	 * @return Label[]
+	 * @return Label[] An array of Label objects.
 	 */
 	public function get_labels() : array {
+
+		static::register_wp_core_pattern_category();
 
 		$labels = static::filter_labels();
 
@@ -42,7 +40,7 @@ class Label_Store {
 	/**
 	 * Chance to load your own Labels.
 	 *
-	 * @return Label[]
+	 * @return Label[] An array of Label objects.
 	 */
 	protected static function filter_labels() : array {
 		return \apply_filters(
@@ -56,7 +54,7 @@ class Label_Store {
 	 *
 	 * Uses transients to cache simplified WP_Query results.
 	 *
-	 * @return Label[]
+	 * @return Label[] An array of Label objects.
 	 */
 	function get_stored_labels() : array {
 
@@ -92,11 +90,9 @@ class Label_Store {
 	/**
 	 * Get existing 'synced-patterns' posts or imported defaults, if none were queried.
 	 *
-	 * @return Label[]
+	 * @return Label[] An array of Label objects.
 	 */
 	protected static function query_labels() : array {
-
-		static::register_wp_core_pattern_category();
 
 		$query = new \WP_Query(
 			[
@@ -126,11 +122,11 @@ class Label_Store {
 	}
 
 	/**
-	 * Get a list of well-formatted Label objects.
+	 * Get a list of well-formatted Label objects from WP_Query results.
 	 *
 	 * @param  \WP_Query $query Resulting Query of query_labels().
 	 *
-	 * @return Label[]
+	 * @return Label[] An array of Label objects.
 	 */
 	protected static function label_factory_from_wp_posts( \WP_Query $query ) : array {
 
@@ -173,7 +169,7 @@ class Label_Store {
 	/**
 	 * Import static defaults into the DB as new 'wp_block' posts.
 	 *
-	 * @return Label[]
+	 * @return Label[] An array of Label objects.
 	 */
 	public static function import_bootstrap_labels() : array {
 		return \array_map(
@@ -199,20 +195,48 @@ class Label_Store {
 	/**
 	 * Get static defaults
 	 *
-	 * @return array<int, array<string, string|int|float>>
+	 * @example
+	 * [
+	 *   [
+	 *      'name'         => 'A6 Landscape (4 Stück)',
+	 *      'width'        => 148,
+	 *      'height'       => 105,
+	 *      'a4_border_tb' => 0,
+	 *      'a4_border_lr' => 0,
+	 *      'orientation'  => 'landscape',
+	 *   ],
+	 *   [
+	 *      'name'         => 'A6 Landscape',
+	 *      'width'        => 148,
+	 *      'height'       => 90,
+	 *      'a4_border_tb' => 15,
+	 *      'a4_border_lr' => 0,
+	 *      'orientation'  => 'landscape',
+	 *   ],
+	 *   [
+	 *      'name'         => 'A8 Portrait',
+	 *      'width'        => 52.5,
+	 *      'height'       => 74,
+	 *      'a4_border_tb' => 0,
+	 *      'a4_border_lr' => 0,
+	 *      'orientation'  => 'portrait',
+	 *   ],
+	 *   [
+	 *      'name'         => 'A8 Landscape',
+	 *      'width'        => 74,
+	 *      'height'       => 52.5,
+	 *      'a4_border_tb' => 0,
+	 *      'a4_border_lr' => 0,
+	 *      'orientation'  => 'landscape',
+	 *   ],
+	 * ];
+	 *
+	 * @return array<int, array<string, string|int|float>> An array of static default label configurations.
 	 */
 	public static function get_bootstrap_labels() : array {
 		return [
 			[
-				'name'         => 'A6 with Borders',
-				'width'        => 148,
-				'height'       => 90,
-				'a4_border_tb' => 15,
-				'a4_border_lr' => 0,
-				'orientation'  => 'landscape',
-			],
-			[
-				'name'         => 'A6',
+				'name'         => 'A6 Landscape (4 Stück)',
 				'width'        => 148,
 				'height'       => 105,
 				'a4_border_tb' => 0,
@@ -220,20 +244,38 @@ class Label_Store {
 				'orientation'  => 'landscape',
 			],
 			[
-				'name'         => 'A7',
-				'width'        => 74,
-				'height'       => 52.5,
+				'name'         => 'niceday (8 Stück)',
+				'width'        => 105,
+				'height'       => 74,
 				'a4_border_tb' => 0,
 				'a4_border_lr' => 0,
+				'orientation'  => 'portrait',
+			],
+			[
+				'name'         => 'HERMA Neon No. 5147 (8 Stück)',
+				'width'        => 96,
+				'height'       => 67,
+				'a4_border_tb' => 14,
+				'a4_border_lr' => 9,
+				'orientation'  => 'portrait',
+			],
+			[
+				'name'         => 'LABELident (64 Stück)',
+				'width'        => 48,
+				'height'       => 17,
+				'a4_border_tb' => 13,
+				'a4_border_lr' => 8,
 				'orientation'  => 'portrait',
 			],
 		];
 	}
 
 	/**
+	 * Registers 'wp_pattern_category' taxonomy.
+	 *
 	 * THIS IS COPIED FROM WP CORE AND NEEDS TO BE REMOVED WHEN 6.4 IS SHIPPED!
 	 *
-	 * @see https://github.com/WordPress/gutenberg/pull/53163
+	 * @todo #8 Remove custom registration of ˋwp_pattern_categoryˋ
 	 *
 	 * @return void
 	 */
@@ -260,6 +302,6 @@ class Label_Store {
 			],
 		];
 		\register_taxonomy( WP_CORE_PATTERN_TAX, [ 'wp_block' ], $args );
-
+		\register_taxonomy_for_object_type( WP_CORE_PATTERN_TAX, 'wp_block' );
 	}
 }

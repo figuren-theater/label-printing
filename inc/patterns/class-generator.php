@@ -8,7 +8,10 @@
 namespace Figuren_Theater\Label_Printing\Patterns;
 
 /**
- * Handles the automated registration of block-patterns based on a given Label.
+ * This class generates the HTML markup for the label sheet pattern based on a given label.
+ *
+ * It calculates the layout based on label dimensions, A4 sheet size, and borders,
+ * producing a printable pattern.
  */
 class Generator {
 
@@ -97,6 +100,7 @@ class Generator {
 	 */
 	protected function calculate() : void {
 
+		// Determine label dimensions based on orientation.
 		switch ( $this->label->orientation ) {
 			case 'portrait':
 				$width  = $this->label->width;
@@ -110,6 +114,7 @@ class Generator {
 				break;
 		}
 
+		// Calculate the number of rows and columns that fit on an A4 sheet.
 		$a4_height = 297 - ( 2 * $this->label->a4_border_tb );
 		$a4_width  = 210 - ( 2 * $this->label->a4_border_lr );
 

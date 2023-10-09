@@ -8,7 +8,9 @@
 		"WordPress",
 		"Theater",
 		"Gutenberg",
-		"Blocks"
+		"Blocks",
+    "Label-Printing",
+    "print.css"
 	],
 	"homepage": "https://websites.fuer.figuren.theater",
 	"repository": "git+https://github.com/figuren-theater/label-printing.git",
@@ -32,7 +34,7 @@
 		"i18n:pot": " wp i18n make-pot . --exclude=node_modules,vendor",
 		"i18n:json": "wp i18n make-json languages --pretty-print --no-purge",
 		"i18n:json:map": "wp i18n make-json languages --pretty-print --no-purge '--use-map={ \"src/index.js\": \"build/index.js\", \"src/save.js\": \"build/index.js\", \"src/edit.js\": \"build/index.js\", \"src/block.json\": \"build/block.json\" }'",
-		"lint:css": "wp-scripts lint-style \"**/*.css **/.*scss\"",
+		"lint:css": "wp-scripts lint-style",
 		"lint:css:fix": "npm run lint:css -- --fix",
 		"lint:js": "wp-scripts lint-js",
 		"lint:js:fix": "npm run lint:js -- --fix",

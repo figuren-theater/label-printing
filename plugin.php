@@ -30,8 +30,9 @@ const DIRECTORY = __DIR__;
 /**
  * REMOVE
  *
- * @todo Add non-composer autoloading strategy
+ * @todo #15 Add composer autoloading strategy
  */
+require_once DIRECTORY . '/inc/blocks/namespace.php'; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
 require_once DIRECTORY . '/inc/block-styles/namespace.php'; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
 require_once DIRECTORY . '/inc/block-variations/namespace.php'; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
 require_once DIRECTORY . '/inc/patterns/class-generator.php'; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
@@ -41,4 +42,3 @@ require_once DIRECTORY . '/inc/patterns/namespace.php'; // phpcs:ignore WordPres
 require_once DIRECTORY . '/inc/namespace.php'; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
 
 add_action( 'init', __NAMESPACE__ . '\\register', 0 );
-

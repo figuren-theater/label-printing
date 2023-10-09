@@ -1,0 +1,21 @@
+{
+	"name": "label-proxy",
+	"version": "0.1.0",
+	"description": "Works like a (yet, non-existent) local-reusable-block.",
+	"author": "Carsten Bach",
+	"license": "GPL-3.0-or-later",
+	"keywords": [
+		"WordPress",
+		"Theater",
+		"Gutenberg",
+		"Blocks",
+    "Label-Printing",
+    "print.css"
+	],
+	"homepage": "https://websites.fuer.figuren.theater",
+	"repository": "git+https://github.com/figuren-theater/label-printing.git",
+	"bugs": {
+		"url": "https://github.com/figuren-theater/label-printing/issues"
+	},
+	"scripts": {}
+}

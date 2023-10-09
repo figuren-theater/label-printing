@@ -1,0 +1,35 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * @todo #17 Maybe use aspect-ratio
+ *           in favor of min- and max- and normal-width-vodoo.
+ */
+
+.wp-block-figuren-theater-label-printing {
+	padding: 2em 0;
+
+	> div:first-child {
+		margin-bottom: 2em;
+	}
+
+	.components-flex-item.block-editor-block-list__layout {
+		background-color: rgb(255, 255, 255);
+		box-shadow: 0.1em 0.1em 0.3em var(--wp-admin-theme-color, rgb(128, 128, 128));
+		overflow: hidden;
+		transition: width, height 0.3s cubic-bezier(0.9, 0.26, 0.18, 0.77);
+	}
+
+	.wp-block-group.alignwide[class*="is-style-label-overview-"] {
+
+		.is-layout-flex {
+			flex-wrap: nowrap;
+			align-items: inherit;
+			gap: 0;
+			justify-content: center;
+
+			> div {
+				flex-grow: 1;
+			}
+		}
+	}
+}

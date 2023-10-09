@@ -8,7 +8,10 @@
 namespace Figuren_Theater\Label_Printing\Patterns;
 
 /**
- * Printing-Label definition for real-world printing.
+ * This class defines the structure of a label,
+ * encapsulating properties such as name, dimensions, orientation, and post ID.
+ *
+ * It also includes methods for inserting a new label into the database.
  */
 class Label {
 	/**
@@ -17,13 +20,6 @@ class Label {
 	 * @var string
 	 */
 	public string $name;
-
-	/**
-	 * Machine readable name
-	 *
-	 * @var string
-	 */
-	public string $slug;
 
 	/**
 	 * Width in mm
@@ -78,7 +74,6 @@ class Label {
 	 */
 	public function __construct( string $name, float $width, float $height ) {
 		$this->name   = $name;
-		$this->slug   = \sanitize_title_with_dashes( $name, '', 'save' );
 		$this->width  = $width;
 		$this->height = $height;
 	}
@@ -124,6 +119,7 @@ class Label {
 			return;
 		}
 
+		// Store saved post_ID in object.
 		$this->post_ID = $post_ID;
 
 		/**
@@ -140,8 +136,6 @@ class Label {
 	 * @return string
 	 */
 	protected static function get_insert_markup() : string {
-		return '<!-- wp:paragraph -->
-		<p>MEIN TOLLES DBINSERTED LABEL</p>
-		<!-- /wp:paragraph -->';
+		return '<!-- wp:figuren-theater/label-proxy /-->';
 	}
 }
