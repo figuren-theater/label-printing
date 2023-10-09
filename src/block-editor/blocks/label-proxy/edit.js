@@ -12,7 +12,5 @@ import ServerSideRender from '@wordpress/server-side-render';
  * @return {WPElement} Element to render.
  */
 export default function Edit() {
-	return (
-		<ServerSideRender block="figuren-theater/label-proxy" />
-	);
+	return <ServerSideRender block="figuren-theater/label-proxy" />;
 }

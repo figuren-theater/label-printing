@@ -19,7 +19,7 @@ import json from './block.json';
 import Edit from './edit';
 import save from './save';
 
-const {name, ...settings} = json;
+const { name, ...settings } = json;
 
 /**
  * Every block starts by registering a new block type definition.

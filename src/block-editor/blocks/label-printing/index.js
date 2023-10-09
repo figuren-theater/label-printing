@@ -28,7 +28,7 @@ import json from './block.json';
 import Edit from './edit';
 import save from './save';
 
-const {name, ...settings} = json;
+const { name, ...settings } = json;
 
 /**
  * Every block starts by registering a new block type definition.
@@ -38,11 +38,7 @@ const {name, ...settings} = json;
 registerBlockType(name, {
 	...settings,
 	title: _x('Label Printing', 'block title', 'label-printing'),
-	description: _x(
-		'Make labels now.',
-		'block description',
-		'label-printing'
-	),
+	description: _x('Make labels now.', 'block description', 'label-printing'),
 	edit: Edit,
 	save,
 });

@@ -19,7 +19,7 @@ export default function save() {
 	const blockProps = useBlockProps.save();
 
 	return (
-		<div { ...blockProps }>
+		<div {...blockProps}>
 			<InnerBlocks.Content />
 		</div>
 	);
