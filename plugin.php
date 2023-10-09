@@ -3,7 +3,7 @@
  * Register the label-printing plugin
  *
  * @package           figuren-theater/label-printing
- * @author            figuren.theater
+ * @author            figuren.theater Crew
  * @copyright         2023 figuren.theater
  * @license           GPL-3.0+
  *
@@ -14,8 +14,8 @@
  * Version:           0.1.0
  * Requires at least: 6.0
  * Requires PHP:      7.1
- * Author:            figuren.theater
- * Author URI:        https://figuren.theater
+ * Author:            figuren.theater Crew
+ * Author URI:        https://figuren.theater/crew
  * Text Domain:       label-printing
  * Domain Path:       /languages
  * License:           GPL-3.0+
