@@ -33,8 +33,12 @@ function render() : string {
 
 			\ob_start();
 			foreach ( $block['innerBlocks'] as $block ) {
-
-				echo \esc_html( \apply_filters( 'the_content', \render_block( $block ) ) );
+				echo \wp_kses_post(
+					\apply_filters(
+						'the_content',
+						\render_block( $block )
+					)
+				);
 			}
 			return (string) \ob_get_clean();
 		}
