@@ -177,6 +177,10 @@ export default function Edit({
 
 	// Get WP_Post object by post_id from already queried data.
 	const getPostObject = (id) => {
+		// Note: the second parameter of parseInt() signifies the radix for parsing;
+		// in this case, the  number will be parsed as a decimal.
+		id = parseInt(id, 10);
+
 		return labelsRequest?.records?.filter((post) => post.id === id);
 	};
 
@@ -193,7 +197,7 @@ export default function Edit({
 	 *
 	 * @todo #12 Create a local-only reusable-block or a ‚reusable-block light‘
 	 *
-	 * @param {number} newId
+	 * @param {string} newId New Post ID that was selected.
 	 */
 	return (
 		<div {...blockProps}>
