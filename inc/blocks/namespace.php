@@ -68,6 +68,12 @@ function register_block( string $block ) : void {
 			'render_callback' => __NAMESPACE__ . "\\$namespaced_name\\render",
 		]
 	);
+
+	\wp_set_script_translations(
+		"figuren-theater-$block-editor-script",
+		'label-printing',
+		Label_Printing\DIRECTORY . '/languages'
+	);
 }
 
 /**

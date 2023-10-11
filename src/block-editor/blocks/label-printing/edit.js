@@ -135,7 +135,7 @@ export default function Edit({
 
 	// Renders a loading message if the label data is still resolving.
 	if (labelsRequest.isResolving) {
-		return <div {...blockProps}>Loading....</div>;
+		return <div {...blockProps}>{__('Loading…', 'label-printing')}</div>;
 	}
 
 	/**
