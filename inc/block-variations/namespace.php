@@ -52,7 +52,9 @@ function register_asset( string $asset ) : void {
 
 	$dir = Label_Printing\DIRECTORY;
 
-	$script_asset_path = "$dir/build/$asset.asset.php";
+	$path = "build/$asset";
+
+	$script_asset_path = "$dir/$path/$asset.asset.php";
 
 	$error_message = "You need to run `npm start` or `npm run build` for the '$asset' block-asset first.";
 
@@ -67,7 +69,7 @@ function register_asset( string $asset ) : void {
 		}
 	}
 
-	$index_js     = "build/$asset.js";
+	$index_js     = "$path/$asset.js";
 	$script_asset = require $script_asset_path; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable
 
 	wp_register_script(
@@ -80,7 +82,7 @@ function register_asset( string $asset ) : void {
 	wp_set_script_translations(
 		"label-printing--$asset",
 		'label-printing',
-		Label_Printing\DIRECTORY . '/languages'
+		"$dir/languages"
 	);
 }
 
