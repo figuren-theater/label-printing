@@ -193,50 +193,14 @@ class Label_Store {
 	}
 
 	/**
-	 * Get static defaults
-	 *
-	 * @example
-	 * [
-	 *   [
-	 *      'name'         => 'A6 Landscape (4 Stück)',
-	 *      'width'        => 148,
-	 *      'height'       => 105,
-	 *      'a4_border_tb' => 0,
-	 *      'a4_border_lr' => 0,
-	 *      'orientation'  => 'landscape',
-	 *   ],
-	 *   [
-	 *      'name'         => 'A6 Landscape',
-	 *      'width'        => 148,
-	 *      'height'       => 90,
-	 *      'a4_border_tb' => 15,
-	 *      'a4_border_lr' => 0,
-	 *      'orientation'  => 'landscape',
-	 *   ],
-	 *   [
-	 *      'name'         => 'A8 Portrait',
-	 *      'width'        => 52.5,
-	 *      'height'       => 74,
-	 *      'a4_border_tb' => 0,
-	 *      'a4_border_lr' => 0,
-	 *      'orientation'  => 'portrait',
-	 *   ],
-	 *   [
-	 *      'name'         => 'A8 Landscape',
-	 *      'width'        => 74,
-	 *      'height'       => 52.5,
-	 *      'a4_border_tb' => 0,
-	 *      'a4_border_lr' => 0,
-	 *      'orientation'  => 'landscape',
-	 *   ],
-	 * ];
+	 * Get static default labels.
 	 *
 	 * @return array<int, array<string, string|int|float>> An array of static default label configurations.
 	 */
 	public static function get_bootstrap_labels() : array {
-		return [
+		$bootstrap_labels = [
 			[
-				'name'         => 'A6 Landscape (4 Stück)',
+				'name'         => 'A6 Landscape',
 				'width'        => 148,
 				'height'       => 105,
 				'a4_border_tb' => 0,
@@ -244,30 +208,88 @@ class Label_Store {
 				'orientation'  => 'landscape',
 			],
 			[
-				'name'         => 'niceday (8 Stück)',
-				'width'        => 105,
+				'name'         => 'A6 Landscape (with Top-Bottom-Borders)',
+				'width'        => 148,
+				'height'       => 90,
+				'a4_border_tb' => 15,
+				'a4_border_lr' => 0,
+				'orientation'  => 'landscape',
+			],
+			[
+				'name'         => 'A8 Portrait',
+				'width'        => 52.5,
 				'height'       => 74,
 				'a4_border_tb' => 0,
 				'a4_border_lr' => 0,
 				'orientation'  => 'portrait',
 			],
 			[
-				'name'         => 'HERMA Neon No. 5147 (8 Stück)',
-				'width'        => 96,
-				'height'       => 67,
-				'a4_border_tb' => 14,
-				'a4_border_lr' => 9,
-				'orientation'  => 'portrait',
-			],
-			[
-				'name'         => 'LABELident (64 Stück)',
-				'width'        => 48,
-				'height'       => 17,
-				'a4_border_tb' => 13,
-				'a4_border_lr' => 8,
-				'orientation'  => 'portrait',
+				'name'         => 'A8 Landscape',
+				'width'        => 74,
+				'height'       => 52.5,
+				'a4_border_tb' => 0,
+				'a4_border_lr' => 0,
+				'orientation'  => 'landscape',
 			],
 		];
+
+		/**
+		 * Add your own labels or just adjust the default ones using this filter.
+		 *
+		 * @hook  Figuren_Theater\Label_Printing\Patterns\bootstrap_labels
+		 * @since 0.2.0
+		 *
+		 * @phpstan-ignore-next-line phpDoc.parseError
+		 * @param {array} $bootstrap_labels List of Labels (an array of arrays) that will be inserted into the DB on import by default.
+		 *
+		 * @phpstan-ignore-next-line phpDoc.parseError
+		 * @return {array}                  List of Labels (an array of arrays) that will be inserted into the DB on import.
+		 *
+		 * @example <caption>Add your own or adjust the default labels.</caption>
+		 * \add_filter(
+		 *     'Figuren_Theater\Label_Printing\Patterns\bootstrap_labels',
+		 *     function( array $default_labels ) : array {
+		 *         return [
+		 *             [
+		 *                 'name'         => 'A6 Landscape (4 Stück)',
+		 *                 'width'        => 148,
+		 *                 'height'       => 105,
+		 *                 'a4_border_tb' => 0,
+		 *                 'a4_border_lr' => 0,
+		 *                 'orientation'  => 'landscape',
+		 *             ],
+		 *             [
+		 *                 'name'         => 'niceday (8 Stück)',
+		 *                 'width'        => 105,
+		 *                 'height'       => 74,
+		 *                 'a4_border_tb' => 0,
+		 *                 'a4_border_lr' => 0,
+		 *                 'orientation'  => 'portrait',
+		 *             ],
+		 *             [
+		 *                 'name'         => 'HERMA Neon No. 5147 (8 Stück)',
+		 *                 'width'        => 96,
+		 *                 'height'       => 67,
+		 *                 'a4_border_tb' => 14,
+		 *                 'a4_border_lr' => 9,
+		 *                 'orientation'  => 'portrait',
+		 *             ],
+		 *             [
+		 *                 'name'         => 'LABELident (64 Stück)',
+		 *                 'width'        => 48,
+		 *                 'height'       => 17,
+		 *                 'a4_border_tb' => 13,
+		 *                 'a4_border_lr' => 8,
+		 *                 'orientation'  => 'portrait',
+		 *             ],
+		 *         ];
+		 *     }
+		 * );
+		 */
+		return \apply_filters(
+			__NAMESPACE__ . '\\bootstrap_labels',
+			$bootstrap_labels
+		);
 	}
 
 	/**

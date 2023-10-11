@@ -25,6 +25,7 @@ function register() :void {
  */
 function bootstrap() :void {
 	register_blocks();
+
 }
 
 /**

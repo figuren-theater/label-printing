@@ -46,6 +46,29 @@ class Generator {
 	}
 
 	/**
+	 * Generate the pattern slug from the label post_ID.
+	 *
+	 * @param  int    $id Post ID of the wp_block post.
+	 *
+	 * @return string Namespaced pattern slug|name including the labels post_ID.
+	 */
+	public static function get_pattern_name( int $id ) : string {
+		return "figuren-theater/label-view-a4-$id";
+	}
+
+	/**
+	 * Get human readable title of block pattern
+	 * (currently invisible in the UI)
+	 *
+	 * @param  string $label_name Human readable name of the label.
+	 *
+	 * @return string             Human readable name of the block-pattern.
+	 */
+	public static function get_pattern_title( string $label_name ) : string {
+		return "A4 view of $label_name Label";
+	}
+
+	/**
 	 * Get full html of customized printing-label-sheet pattern,
 	 * using a 'core/group' block with one of two custom block-styles.
 	 *

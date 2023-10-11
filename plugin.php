@@ -12,8 +12,8 @@
  * Plugin URI:        https://github.com/figuren-theater/label-printing
  * Description:       Create printable labels with blocks.
  * Version:           0.1.0
- * Requires at least: 6.0
- * Requires PHP:      7.1
+ * Requires at least: 6.2
+ * Requires PHP:      7.4
  * Author:            figuren.theater Crew
  * Author URI:        https://figuren.theater/crew
  * Text Domain:       label-printing
@@ -41,4 +41,4 @@ require_once DIRECTORY . '/inc/patterns/class-label-store.php'; // phpcs:ignore 
 require_once DIRECTORY . '/inc/patterns/namespace.php'; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
 require_once DIRECTORY . '/inc/namespace.php'; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
 
-add_action( 'init', __NAMESPACE__ . '\\register', 0 );
+\add_action( 'init', __NAMESPACE__ . '\\register', 0 );

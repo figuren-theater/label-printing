@@ -9,8 +9,8 @@
 		"Theater",
 		"Gutenberg",
 		"Blocks",
-    "Label-Printing",
-    "print.css"
+		"Label-Printing",
+		"print.css"
 	],
 	"homepage": "https://websites.fuer.figuren.theater",
 	"repository": "git+https://github.com/figuren-theater/label-printing.git",
@@ -18,10 +18,6 @@
 		"url": "https://github.com/figuren-theater/label-printing/issues"
 	},
 	"main": "build/index.js",
-	"dependencies": {
-		"@wordpress/icons": "^9.33.0",
-		"classnames": "^2.3.2"
-	},
 	"devDependencies": {
 		"@wordpress/scripts": "^26.13.0",
 		"prettier": "^3.0.3"
