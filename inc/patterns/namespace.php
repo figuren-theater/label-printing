@@ -96,9 +96,9 @@ function register_block_patterns( Label $label ) : void {
 
 	// Register block-pattern to WordPress.
 	\register_block_pattern(
-		'figuren-theater/label-view-a4-' . $label->post_ID,
+		$generator::get_pattern_name( $label->post_ID ),
 		[
-			'title'         => 'A4 view of ' . $label->name . ' Label',
+			'title'         => $generator::get_pattern_title( $label->name ),
 			'content'       => $generator->get_markup(),
 			'description'   => _x( 'This is an overview block pattern for printing labels.', 'Block pattern description', 'label-printing' ),
 			'viewportWidth' => 1500,

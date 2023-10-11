@@ -8,6 +8,7 @@
 namespace Figuren_Theater\Label_Printing\Blocks\Printing;
 
 use Figuren_Theater\Label_Printing\Patterns;
+use Figuren_Theater\Network\Blocks\Patterns as BlocksPatterns;
 
 /**
  * Render callback of the 'figuren-theater/label-printing' block.
@@ -53,9 +54,8 @@ function render( array $attributes ) : string {
 		$attributes['orientation']
 	);
 
-	// Generate the pattern slug from label.
-	$pattern_slug = 'figuren-theater/label-view-a4-' . $label->ID;
-
+	// Get the pattern slug from label.
+	$pattern_slug = Patterns\Generator::get_pattern_name( (int) $label->ID );
 	// Prepare block-pattern with the specified pattern slug for rendering.
 	$pattern = \do_blocks( '<!-- wp:pattern {"slug":"' . $pattern_slug . '"} -->' );
 
