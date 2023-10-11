@@ -43,7 +43,6 @@ registerBlockType(name, {
 	save,
 });
 
-
 /**
  *      Is it possible to nest block styles in the theme.json
  * @see https://wordpress.stackexchange.com/questions/408194/is-it-possible-to-nest-block-styles-in-the-theme-json/419224#419224
@@ -52,7 +51,7 @@ registerBlockType(name, {
  * @see https://gutenberg.10up.com/reference/Themes/theme-json/#filtering-themejson-client-side
  */
 
-import { select } from  '@wordpress/data';
+import { select } from '@wordpress/data';
 import { addFilter } from '@wordpress/hooks';
 import { store as blockEditorStore } from '@wordpress/block-editor';
 /**
@@ -60,20 +59,28 @@ import { store as blockEditorStore } from '@wordpress/block-editor';
  * when placed inside of Label-Printing blocks.
  */
 addFilter(
-    'blockEditor.useSetting.before',
-    'figuren-theater/useSetting.before',
-    ( settingValue, settingName, clientId, blockName ) => {
-        if ( blockName === 'core/group' || blockName === 'core/heading' || blockName === 'core/paragraph' ) {
-            const { getBlockParents, getBlockName } = select( blockEditorStore );
-            const blockParents = getBlockParents( clientId, true );
-            const isNestedInLabelBlock =
-				blockParents.some( ( ancestorId ) => getBlockName( ancestorId ) === name );
+	'blockEditor.useSetting.before',
+	'figuren-theater/useSetting.before',
+	(settingValue, settingName, clientId, blockName) => {
+		if (
+			blockName === 'core/group' ||
+			blockName === 'core/heading' ||
+			blockName === 'core/paragraph'
+		) {
+			const { getBlockParents, getBlockName } = select(blockEditorStore);
+			const blockParents = getBlockParents(clientId, true);
+			const isNestedInLabelBlock = blockParents.some(
+				(ancestorId) => getBlockName(ancestorId) === name
+			);
 
-            if ( isNestedInLabelBlock && settingName === 'typography.customFontSize' ) {
-                return true;
-            }
-        }
+			if (
+				isNestedInLabelBlock &&
+				settingName === 'typography.customFontSize'
+			) {
+				return true;
+			}
+		}
 
-        return settingValue;
-    }
+		return settingValue;
+	}
 );

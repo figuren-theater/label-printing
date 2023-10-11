@@ -6,6 +6,7 @@ module.exports = {
 			'./src/block-editor/blocks/label-printing',
 		'label-proxy/label-proxy': './src/block-editor/blocks/label-proxy',
 
-		'label-overview/label-overview': './src/block-editor/variations/label-overview',
+		'label-overview/label-overview':
+			'./src/block-editor/variations/label-overview',
 	},
 };
