@@ -239,8 +239,10 @@ class Label_Store {
 		 * @hook  Figuren_Theater\Label_Printing\Patterns\bootstrap_labels
 		 * @since 0.2.0
 		 *
+		 * @phpstan-ignore-next-line phpDoc.parseError
 		 * @param {array} $bootstrap_labels List of Labels (an array of arrays) that will be inserted into the DB on import by default.
 		 *
+		 * @phpstan-ignore-next-line phpDoc.parseError
 		 * @return {array}                  List of Labels (an array of arrays) that will be inserted into the DB on import.
 		 *
 		 * @example <caption>Add your own or adjust the default labels.</caption>
