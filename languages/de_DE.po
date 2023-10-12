@@ -1,0 +1,124 @@
+# Copyright (C) 2023 figuren.theater Crew
+# This file is distributed under the GPL-3.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: figuren.theater | Label Printing 0.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/label-printing\n"
+"POT-Creation-Date: 2023-10-11T15:41:35+02:00\n"
+"PO-Revision-Date: 2023-10-13 00:01+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.3.1\n"
+"X-Domain: label-printing\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#. Plugin Name of the plugin
+msgid "figuren.theater | Label Printing"
+msgstr "figuren.theater | Etikettendruck"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/figuren-theater/label-printing"
+msgstr ""
+
+#. Description of the plugin
+msgid "Create printable labels with blocks."
+msgstr "Erstelle druckbare Etiketten mit Blöcken."
+
+#. Author of the plugin
+msgid "figuren.theater Crew"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://figuren.theater/crew"
+msgstr ""
+
+#: inc/block-styles/namespace.php:39
+msgid "A4 portrait"
+msgstr "A4 Hochformat"
+
+#: inc/block-styles/namespace.php:50
+msgid "A4 landscape"
+msgstr "A4 Querformat"
+
+#: inc/patterns/namespace.php:103
+msgctxt "Block pattern description"
+msgid "This is an overview block pattern for printing labels."
+msgstr "Dies ist eine Etikettendruck Übersicht als Block-Vorlage."
+
+#: build/label-overview/label-overview.js:1
+#: src/block-editor/variations/label-overview/index.js:21
+msgid "Label Overview"
+msgstr "Etikettenübersicht"
+
+#: build/label-overview/label-overview.js:1
+#: src/block-editor/variations/label-overview/index.js:22
+msgid "Shows multiple labels as printable document."
+msgstr "Zeigt mehrere Etiketten als druckfähiges Dokument."
+
+#: build/label-overview/label-overview.js:1
+#: src/block-editor/variations/label-overview/index.js:26
+msgid "label"
+msgstr "Etikett"
+
+#: build/label-overview/label-overview.js:1
+#: src/block-editor/variations/label-overview/index.js:26
+msgid "print"
+msgstr "Drucken"
+
+#: build/label-printing/label-printing.js:1
+#: src/block-editor/blocks/label-printing/index.js:40
+#: build/label-printing/block.json
+#: src/block-editor/blocks/label-printing/block.json
+msgctxt "block title"
+msgid "Label Printing"
+msgstr "Etikettendruck"
+
+#: build/label-printing/label-printing.js:1
+#: src/block-editor/blocks/label-printing/index.js:41
+#: build/label-printing/block.json
+#: src/block-editor/blocks/label-printing/block.json
+msgctxt "block description"
+msgid "Make labels now."
+msgstr "Erstelle jetzt Etiketten."
+
+#: build/label-printing/label-printing.js:1
+#: src/block-editor/blocks/label-printing/edit.js:138
+#: src/block-editor/blocks/label-printing/edit.js:175
+msgid "Loading…"
+msgstr "Laden…"
+
+#: build/label-printing/label-printing.js:1
+#: src/block-editor/blocks/label-printing/edit.js:169
+msgid "Select your Printing Label template"
+msgstr "Wähle deine Etiketten-Vorlage"
+
+#: build/label-printing/label-printing.js:1
+#: src/block-editor/blocks/label-printing/edit.js:225
+msgid "Width"
+msgstr "Breite"
+
+#: build/label-printing/label-printing.js:1
+#: src/block-editor/blocks/label-printing/edit.js:229
+msgid "Height"
+msgstr "Höhe"
+
+#: build/label-proxy/label-proxy.js:1
+#: src/block-editor/blocks/label-proxy/index.js:31 build/label-proxy/block.json
+#: src/block-editor/blocks/label-proxy/block.json
+msgctxt "block title"
+msgid "Label Proxy"
+msgstr ""
+
+#: build/label-proxy/label-proxy.js:1
+#: src/block-editor/blocks/label-proxy/index.js:32 build/label-proxy/block.json
+#: src/block-editor/blocks/label-proxy/block.json
+msgctxt "block description"
+msgid ""
+"Shows the content of the Label provided by the label-creator block, inside "
+"the print-sheet template for a given physical label."
+msgstr ""

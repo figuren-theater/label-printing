@@ -84,7 +84,17 @@ export default function Edit({
 					[
 						[
 							'core/paragraph',
-							{ placeholder: 'Enter side content...' },
+							{
+								placeholder: 'Enter side content...',
+								style: {
+									spacing: {
+										margin: {
+											top: '0',
+											bottom: '0',
+										},
+									},
+								},
+							},
 						],
 					],
 				],
@@ -130,12 +140,12 @@ export default function Edit({
 	 */
 	const labelsRequest = useEntityRecords('postType', 'wp_block', {
 		status: 'publish',
-		wp_pattern_category: [227], // does nothing ????
+		// wp_pattern_category: [227], // does nothing ????
 	});
 
 	// Renders a loading message if the label data is still resolving.
 	if (labelsRequest.isResolving) {
-		return <div {...blockProps}>Loading....</div>;
+		return <div {...blockProps}>{__('Loading…', 'label-printing')}</div>;
 	}
 
 	/**
