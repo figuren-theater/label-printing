@@ -1,5 +1,5 @@
 {
-    "translation-revision-date": "2023-10-11 15:42+0200",
+    "translation-revision-date": "2023-10-13 00:01+0200",
     "generator": "WP-CLI\/2.7.1",
     "source": "src\/block-editor\/blocks\/label-printing\/edit.js",
     "domain": "messages",
@@ -14,7 +14,7 @@
                 "Laden\u2026"
             ],
             "Select your Printing Label template": [
-                "W\u00e4hle deine Etikett-Vorlage"
+                "W\u00e4hle deine Etiketten-Vorlage"
             ],
             "Width": [
                 "Breite"

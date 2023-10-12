@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: figuren.theater | Label Printing 0.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/label-printing\n"
 "POT-Creation-Date: 2023-10-11T15:41:35+02:00\n"
-"PO-Revision-Date: 2023-10-11 15:42+0200\n"
+"PO-Revision-Date: 2023-10-13 00:01+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -95,7 +95,7 @@ msgstr "Laden…"
 #: build/label-printing/label-printing.js:1
 #: src/block-editor/blocks/label-printing/edit.js:169
 msgid "Select your Printing Label template"
-msgstr "Wähle deine Etikett-Vorlage"
+msgstr "Wähle deine Etiketten-Vorlage"
 
 #: build/label-printing/label-printing.js:1
 #: src/block-editor/blocks/label-printing/edit.js:225
