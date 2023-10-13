@@ -234,7 +234,7 @@ class Label_Store {
 		];
 
 		/**
-		 * Add your own labels or just adjust the default ones using this filter.
+		 * Add your own labels or adjust the defaults using this filter.
 		 *
 		 * @hook  Figuren_Theater\Label_Printing\Patterns\bootstrap_labels
 		 * @since 0.2.0
