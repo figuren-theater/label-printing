@@ -3,7 +3,7 @@
 Requires at least: 6.2
 Tested up to: 6.3.1
 Requires PHP: 7.4
-Stable tag: 0.1.0
+Stable tag: 0.2.0
 License: GPL3+
 Contributors: carstenbach
 Tags: Label, print, print.css, block
