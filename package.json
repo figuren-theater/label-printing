@@ -19,7 +19,7 @@
 	},
 	"main": "build/index.js",
 	"devDependencies": {
-		"@wordpress/scripts": "26.13.0",
+		"@wordpress/scripts": "26.17.0",
 		"prettier": "^3.0.3"
 	},
 	"scripts": {
