@@ -61,7 +61,7 @@ function register_asset( string $asset ): void {
 	if ( ! file_exists( $script_asset_path ) ) {
 		if ( \in_array( wp_get_environment_type(), [ 'local', 'development' ], true ) ) {
 			throw new \Error(
-				$error_message
+				\esc_html( $error_message )
 			);
 		} else {
 			\error_log( $error_message );
