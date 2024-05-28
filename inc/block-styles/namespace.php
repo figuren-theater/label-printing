@@ -62,7 +62,7 @@ function bootstrap(): void {
  * @see https://developer.wordpress.org/reference/hooks/body_class/
  * @see https://developer.wordpress.org/reference/functions/has_block/
  *
- * @param  string[] $classes
+ * @param  string[] $classes CSS classes that will be added to the <body> element by WordPress.
  *
  * @return string[]
  */
