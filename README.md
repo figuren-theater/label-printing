@@ -184,6 +184,16 @@ Make sure to only *print* what you really need. If the Print Preview in your bro
 
 Using a `blank.php` template ensures that only the necessary content is printed. If your theme provides this template, it's the best choice to avoid unnecessary headers, post titles, and footers in your printed materials.
 
+### How does the block work?
+
+`figuren-theater/label-printing` is a custom block that uses normal `innerBlocks` to keep the blocks, you are going to add to your label.
+
+To preview the block in the editor and also to render it on the front-end, it uses a hidden, second block called `figuren-theater/label-proxy`. This is a lightweight version of a reusable block, that only works within one post, and not across multiples.
+
+Depending on your selected **pre-defined label** the `…/label-proxy` block will be duplicated as often as the dimensions of the selected label allow. In other words, your label will be fitted into an A4 print-template as often as possible.
+
+
+
 ## Standards and best-practices, this plugin follows
 
 - ✅ This project is licensed under the **GPL-3.0-or-later**, see the LICENSE file for details
