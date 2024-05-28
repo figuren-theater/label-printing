@@ -68,9 +68,9 @@ class Label {
 	/**
 	 * Setup and instantiate a new Label.
 	 *
-	 * @param  string $name   Human readable name
-	 * @param  float  $width  Width in mm
-	 * @param  float  $height Height in mm
+	 * @param  string $name   Human readable name.
+	 * @param  float  $width  Width in mm.
+	 * @param  float  $height Height in mm.
 	 */
 	public function __construct( string $name, float $width, float $height ) {
 		$this->name   = $name;

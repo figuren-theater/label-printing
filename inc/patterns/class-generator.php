@@ -39,7 +39,7 @@ class Generator {
 	/**
 	 * Setup a new Pattern Generator with a pre-defined Label.
 	 *
-	 * @param  Label $label Printing-Label
+	 * @param  Label $label The Printing-Label object with all measurements & dimensions.
 	 */
 	public function __construct( Label $label ) {
 		$this->label = $label;
