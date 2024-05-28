@@ -13,7 +13,7 @@
  * Description:       Create printable labels with blocks.
  * Version:           0.2.0
  * Requires at least: 6.2
- * Requires PHP:      7.4
+ * Requires PHP:      8.1
  * Author:            Carsten Bach
  * Author URI:        https://figuren.theater/crew
  * Text Domain:       label-printing
