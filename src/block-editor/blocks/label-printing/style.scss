@@ -30,9 +30,30 @@ body.is-label-printing {
 		box-sizing: border-box;
 
 	}
+	/* 		// for debug
+	> .wp-block-group > *:before{
+		content: var(--label-printing-orientation);
+	} */
 }
-
+@page portrait {
+	size: A4 portrait;
+	page-orientation: upright;
+	// margin: auto;
+}
+@page landscape {
+	size: A4 landscape;
+	// page-orientation: rotate-left;
+}
+  
 @media print {
+	.is-label-printing {
+		page: var(--label-printing-orientation);
+	}
+	// @page {
+	// 	// size: landscape;
+	// 	size: A4 var(--label-printing-orientation);
+	// }
+
 	// html,
 	body.is-label-printing,
 	.is-label-printing .wp-site-blocks {
@@ -41,14 +62,15 @@ body.is-label-printing {
 	}
 
 	.wp-block-group.alignwide[class*="is-style-label-overview-"] {
-		page-break-before: always;
+		// page-break-before: always;
 		page-break-after: always;
+		break-after: page;
 		padding: var(--label-printing-a4-border-tb, 0) var(--label-printing-a4-border-lr, 0) !important;
 
-		/* 		// for debug
+		/* 	// for debug
 		> .wp-block-group > * {
 			outline: 1px dashed var(--wp--preset--color--foreground, rgb(128, 128, 128));
-		} */
+		}	 */
 	}
 }
 
@@ -57,7 +79,7 @@ body.is-label-printing {
 	.wp-block-group.alignwide[class*="is-style-label-overview-"] {
 
 		box-shadow: 0.1em 0.1em 0.3em var(--wp--preset--color--primary, rgb(128, 128, 128));
-		margin-top: 5vw !important;
+		margin-top: 10vw !important;
 		margin-bottom: 5vw !important;
 
 		> .wp-block-group > * {
