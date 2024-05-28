@@ -14,7 +14,7 @@ namespace Figuren_Theater\Label_Printing\Block_Styles;
  *
  * @return void
  */
-function register() :void {
+function register(): void {
 	\add_action( 'init', __NAMESPACE__ . '\\bootstrap', 1 );
 }
 
@@ -29,7 +29,7 @@ function register() :void {
  *
  * @return void
  */
-function bootstrap() :void {
+function bootstrap(): void {
 
 	// Register A4 portrait block style.
 	\register_block_style(
@@ -53,7 +53,7 @@ function bootstrap() :void {
 		]
 	);
 
-	\add_filter('body_class', __NAMESPACE__ . '\\body_class');
+	\add_filter( 'body_class', __NAMESPACE__ . '\\body_class' );
 }
 
 /**

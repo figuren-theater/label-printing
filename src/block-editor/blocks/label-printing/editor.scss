@@ -20,7 +20,7 @@
 		margin-left: 2vw;
 
 		// padding: 20px; // safety disatnce
-		padding: calc(var(--label-printing-height)*.1) calc(var(--label-printing-width)*.1);
+		padding: calc(var(--label-printing-height) * 0.1) calc(var(--label-printing-width) * 0.1);
 		box-sizing: border-box;
 	}
 

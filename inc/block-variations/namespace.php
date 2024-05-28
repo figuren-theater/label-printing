@@ -14,7 +14,7 @@ use Figuren_Theater\Label_Printing;
  *
  * @return void
  */
-function register() :void {
+function register(): void {
 		\add_action( 'init', __NAMESPACE__ . '\\register_assets', 5 );
 		\add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_assets' );
 }
@@ -24,7 +24,7 @@ function register() :void {
  *
  * @return void
  */
-function register_assets() :void {
+function register_assets(): void {
 	\array_map( __NAMESPACE__ . '\\register_asset', get_assets() );
 }
 
@@ -33,7 +33,7 @@ function register_assets() :void {
  *
  * @return string[] Array of asset slugs.
  */
-function get_assets() : array {
+function get_assets(): array {
 	return [
 		'label-overview',
 	];
@@ -48,7 +48,7 @@ function get_assets() : array {
  *
  * @return void
  */
-function register_asset( string $asset ) : void {
+function register_asset( string $asset ): void {
 
 	$dir = Label_Printing\DIRECTORY;
 
@@ -91,7 +91,7 @@ function register_asset( string $asset ) : void {
  *
  * @return void
  */
-function enqueue_assets() : void {
+function enqueue_assets(): void {
 	\array_map( __NAMESPACE__ . '\\enqueue_asset', get_assets() );
 }
 
@@ -102,6 +102,6 @@ function enqueue_assets() : void {
  *
  * @return void
  */
-function enqueue_asset( string $asset ) : void {
+function enqueue_asset( string $asset ): void {
 	wp_enqueue_script( "label-printing--$asset" );
 }

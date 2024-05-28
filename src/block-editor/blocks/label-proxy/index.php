@@ -16,7 +16,7 @@ namespace Figuren_Theater\Label_Printing\Blocks\Proxy;
  *
  * @return string
  */
-function render() : string {
+function render(): string {
 
 	$post = \get_post();
 
@@ -46,5 +46,4 @@ function render() : string {
 
 	// If not already exited.
 	return '';
-
 }

@@ -26,26 +26,30 @@ body.is-label-printing {
 		max-width: var(--label-printing-width) !important;
 
 		// padding: 20px; // safety disatnce
-		padding: calc(var(--label-printing-height)*.1) calc(var(--label-printing-width)*.1); // safety disatnce
+		padding: calc(var(--label-printing-height) * 0.1) calc(var(--label-printing-width) * 0.1); // safety disatnce
 		box-sizing: border-box;
 
 	}
+
 	/* 		// for debug
 	> .wp-block-group > *:before{
 		content: var(--label-printing-orientation);
 	} */
 }
+
 @page portrait {
-	size: A4 portrait;
+	size: a4 portrait;
 	page-orientation: upright;
 	// margin: auto;
 }
+
 @page landscape {
-	size: A4 landscape;
+	size: a4 landscape;
 	// page-orientation: rotate-left;
 }
-  
+
 @media print {
+
 	.is-label-printing {
 		page: var(--label-printing-orientation);
 	}

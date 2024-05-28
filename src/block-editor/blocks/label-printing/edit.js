@@ -85,7 +85,10 @@ export default function Edit({
 						[
 							'core/paragraph',
 							{
-								placeholder: __('Enter label content...', 'label-printing'),
+								placeholder: __(
+									'Enter label content…',
+									'label-printing'
+								),
 								style: {
 									spacing: {
 										margin: {
