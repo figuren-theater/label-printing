@@ -45,7 +45,7 @@ export default function Edit({
 		[
 			'core/heading',
 			{
-				placeholder: 'Title',
+				placeholder: __('Label Title', 'label-printing'),
 				style: {
 					spacing: {
 						margin: {
@@ -85,7 +85,7 @@ export default function Edit({
 						[
 							'core/paragraph',
 							{
-								placeholder: 'Enter side content...',
+								placeholder: __('Enter label content...', 'label-printing'),
 								style: {
 									spacing: {
 										margin: {
