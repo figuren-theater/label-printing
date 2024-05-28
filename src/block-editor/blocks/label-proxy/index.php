@@ -34,7 +34,7 @@ function render(): string {
 			\ob_start();
 			foreach ( $block['innerBlocks'] as $block ) {
 				echo \wp_kses_post(
-					\apply_filters(
+					\apply_filters( // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 						'the_content',
 						\render_block( $block )
 					)
