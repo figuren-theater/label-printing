@@ -38,6 +38,45 @@ class Label_Store {
 	}
 
 	/**
+	 * Get a well-formatted Label object from its WP_Post object.
+	 *
+	 * @param  int|\WP_Post $post ID of a post or a WP_Post object.
+	 *
+	 * @return Label|null A full Label object or null if no post, or no post_meta was found.
+	 */
+	public static function get_label_by_post( int|\WP_Post $post ) : ?Label {
+
+		// Prepare Data.
+		$post = \get_post( $post );
+		if ( ! $post instanceof WP_Post ) {
+			return null;
+		}
+
+		$meta = \get_post_meta(
+			$post->ID,
+			META_KEY,
+			true
+		);
+		if ( ! is_array( $meta ) || empty( $meta ) ) {
+			return null;
+		}
+
+		$label = new Label(
+			(string) $post->post_title,
+			(float) $meta['width'],
+			(float) $meta['height'],
+		);
+
+		$label->post_ID = $post->ID;
+
+		$label->a4_border_tb = (float) $meta['a4_border_tb'];
+		$label->a4_border_lr = (float) $meta['a4_border_lr'];
+		$label->orientation  = (string) $meta['orientation'];
+
+		return $label;
+	}
+
+	/**
 	 * Chance to load your own Labels.
 	 *
 	 * @return Label[] An array of Label objects.
@@ -129,39 +168,8 @@ class Label_Store {
 	 * @return Label[] An array of Label objects.
 	 */
 	protected static function label_factory_from_wp_posts( \WP_Query $query ) : array {
-
 		return \array_filter( \array_map(
-			function( int|\WP_Post $post ) : ?Label {
-
-				// Prepare Data.
-				$post = \get_post( $post );
-				if ( ! $post instanceof WP_Post ) {
-					return null;
-				}
-
-				$meta = \get_post_meta(
-					$post->ID,
-					META_KEY,
-					true
-				);
-				if ( ! is_array( $meta ) || empty( $meta ) ) {
-					return null;
-				}
-
-				$label = new Label(
-					(string) $post->post_title,
-					(float) $meta['width'],
-					(float) $meta['height'],
-				);
-
-				$label->post_ID = $post->ID;
-
-				$label->a4_border_tb = (float) $meta['a4_border_tb'];
-				$label->a4_border_lr = (float) $meta['a4_border_lr'];
-				$label->orientation  = (string) $meta['orientation'];
-
-				return $label;
-			},
+			get_label_by_post( $post ),
 			$query->posts
 		));
 	}
