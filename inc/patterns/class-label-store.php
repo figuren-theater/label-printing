@@ -169,9 +169,33 @@ class Label_Store {
 	 */
 	protected static function label_factory_from_wp_posts( \WP_Query $query ) : array {
 		return \array_filter( \array_map(
-			get_label_by_post( $post ),
+			static::get_label_by_post( $post ),
 			$query->posts
 		));
+	}
+
+	/**
+	 * Import a Label into the DB as new 'wp_block' post.
+	 *
+	 * @param  string $name Human-readable title of the label.
+	 * @param  array $props List of required label properties: 'width', 'height', 'a4_border_tb', 'a4_border_lr' & 'orientation'.
+	 *
+	 * @return Label
+	 */
+	public static function import_bootstrap_label( string $name, array $props ) : Label {
+		$label = new Label(
+			(string) $name,
+			(float) $props['width'],
+			(float) $props['height'],
+		);
+
+		$label->a4_border_tb = (float) $props['a4_border_tb'];
+		$label->a4_border_lr = (float) $props['a4_border_lr'];
+		$label->orientation  = (string) $props['orientation'];
+
+		$label->insert();
+
+		return $label;
 	}
 
 	/**
@@ -181,21 +205,9 @@ class Label_Store {
 	 */
 	public static function import_bootstrap_labels() : array {
 		return \array_map(
-			function( array $bootstrap_label ) : Label {
-				$label = new Label(
-					(string) $bootstrap_label['name'],
-					(float) $bootstrap_label['width'],
-					(float) $bootstrap_label['height'],
-				);
-
-				$label->a4_border_tb = (float) $bootstrap_label['a4_border_tb'];
-				$label->a4_border_lr = (float) $bootstrap_label['a4_border_lr'];
-				$label->orientation  = (string) $bootstrap_label['orientation'];
-
-				$label->insert();
-
-				return $label;
-			},
+			function( array $label ): void {
+				static::import_bootstrap_label( $label['name'], $label ),
+			}
 			static::get_bootstrap_labels()
 		);
 	}
