@@ -131,7 +131,7 @@ class Label_Store {
 	protected static function label_factory_from_wp_posts( \WP_Query $query ) : array {
 
 		return \array_filter( \array_map(
-			function( int|\WP_Post $post ) : Label|null {
+			function( int|\WP_Post $post ) : ?Label {
 
 				// Prepare Data.
 				$post = \get_post( $post );
