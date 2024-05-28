@@ -59,7 +59,7 @@ function register_asset( string $asset ): void {
 	$error_message = "You need to run `npm start` or `npm run build` for the '$asset' block-asset first.";
 
 	if ( ! file_exists( $script_asset_path ) ) {
-		if ( \in_array( wp_get_environment_type(), [ 'local', 'development' ], true ) ) {
+		if ( \in_array( \wp_get_environment_type(), [ 'local', 'development' ], true ) ) {
 			throw new \Error(
 				\esc_html( $error_message )
 			);
@@ -72,14 +72,14 @@ function register_asset( string $asset ): void {
 	$index_js     = "$path/$asset.js";
 	$script_asset = require $script_asset_path; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable
 
-	wp_register_script(
+	\wp_register_script(
 		"label-printing--$asset",
-		plugins_url( $index_js, "$dir/plugin.php" ),
+		\plugins_url( $index_js, "$dir/plugin.php" ),
 		$script_asset['dependencies'],
 		$script_asset['version']
 	);
 
-	wp_set_script_translations(
+	\wp_set_script_translations(
 		"label-printing--$asset",
 		'label-printing',
 		"$dir/languages"
@@ -103,5 +103,5 @@ function enqueue_assets(): void {
  * @return void
  */
 function enqueue_asset( string $asset ): void {
-	wp_enqueue_script( "label-printing--$asset" );
+	\wp_enqueue_script( "label-printing--$asset" );
 }
