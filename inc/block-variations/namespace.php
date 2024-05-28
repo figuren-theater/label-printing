@@ -64,7 +64,7 @@ function register_asset( string $asset ): void {
 				\esc_html( $error_message )
 			);
 		} else {
-			\error_log( $error_message );
+			\error_log( $error_message ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			return;
 		}
 	}
