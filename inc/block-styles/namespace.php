@@ -52,5 +52,28 @@ function bootstrap() :void {
 			'inline_style' => '.wp-block-group.is-style-label-overview-landscape { --label-printing-doc-width: 29.7cm; --label-printing-doc-height: 21cm }',
 		]
 	);
+
+	\add_filter('body_class', __NAMESPACE__ . '\\body_class');
 }
 
+/**
+ * Add a CSS class to the <body> element if 'label-printing' block is present and is a singular-view.
+ *
+ * @see https://developer.wordpress.org/reference/hooks/body_class/
+ * @see https://developer.wordpress.org/reference/functions/has_block/
+ *
+ * @param  string[] $classes
+ *
+ * @return string[]
+ */
+function body_class( array $classes ): array {
+
+	if ( ! \is_singular() || \is_admin() ) {
+		return $classes;
+	}
+
+	if ( \has_block( 'figuren-theater/label-printing' ) ) {
+		$classes[] = 'is-label-printing';
+	}
+	return $classes;
+}
