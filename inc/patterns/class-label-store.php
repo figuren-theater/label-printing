@@ -31,7 +31,7 @@ class Label_Store {
 		// If $labels is still an empty list,
 		// nobody has used our filter, so we query our DB instead.
 		if ( empty( $labels ) ) {
-			$labels = $this->get_stored_labels();
+			$labels = static::get_stored_labels();
 		}
 
 		return $labels;
@@ -56,7 +56,7 @@ class Label_Store {
 	 *
 	 * @return Label[] An array of Label objects.
 	 */
-	function get_stored_labels() : array {
+	public static function get_stored_labels() : array {
 
 		// Check if the value is already stored.
 		$stored_labels = \get_transient( TRANSIENT_KEY );
@@ -67,7 +67,7 @@ class Label_Store {
 			$stored_labels = static::query_labels();
 
 			// Store for long,
-			// because this will beflushed with every new (and updated) 'wp_block' post.
+			// because this will be flushed with every new (and updated) 'wp_block' post.
 			\set_transient(
 				TRANSIENT_KEY,
 				$stored_labels,
