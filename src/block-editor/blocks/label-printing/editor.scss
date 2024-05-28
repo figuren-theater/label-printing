@@ -18,6 +18,10 @@
 		overflow: hidden;
 		transition: width, height 0.3s cubic-bezier(0.9, 0.26, 0.18, 0.77);
 		margin-left: 2vw;
+
+		// padding: 20px; // safety disatnce
+		padding: calc(var(--label-printing-height)*.1) calc(var(--label-printing-width)*.1);
+		box-sizing: border-box;
 	}
 
 	.wp-block-group.alignwide[class*="is-style-label-overview-"] {

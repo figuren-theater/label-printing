@@ -24,6 +24,11 @@ body.is-label-printing {
 		overflow: hidden;
 		max-height: var(--label-printing-height) !important;
 		max-width: var(--label-printing-width) !important;
+
+		// padding: 20px; // safety disatnce
+		padding: calc(var(--label-printing-height)*.1) calc(var(--label-printing-width)*.1); // safety disatnce
+		box-sizing: border-box;
+
 	}
 }
 
