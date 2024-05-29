@@ -7,7 +7,7 @@ on:
   push:
     commit_message: 'Update version to '
     # branches:
-      # - main
+    #   - main
 
 jobs:
   update-version-numbers-for-wp-repository:
@@ -15,7 +15,10 @@ jobs:
     runs-on: ubuntu-latest
 
     # Condition looks for numbered releases (1.27.3 for example) AND a specific part of a commit msg.
-    if: 'latest' !== github.event.release.tag_name && contains(github.event.head_commit.message, 'Update version to ')
+    # v1
+    # if: 'latest' !== github.event.release.tag_name && contains(github.event.head_commit.message, 'Update version to ')
+    # v2
+    if: ( github.event.release.tag_name && 'latest' != github.event.release.tag_name && contains(github.event.head_commit.message, 'Update version to ') )
     # 'Update version to ' is part of an automated commit by @figuren-theater-bot
     # during the 'figuren-theater/.github/.github/workflows/prerelease-changelog-update.yml@main' action.
     # This kind of commit runs everywhere in the ft-space.
