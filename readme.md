@@ -237,4 +237,8 @@ Depending on your selected **pre-defined label** the `…/label-proxy` block wil
 
 ## Changelog
 
-<!-- changelog -->
+Read the changelog partial for [the latest release](https://github.com/figuren-theater/label-printing/releases/latest).
+
+We *keep a Changelog* in the [`CHANGELOG.md`](https://github.com/figuren-theater/label-printing/blob/main/CHANGELOG.md) file.
+
+
