@@ -38,10 +38,9 @@ jobs:
       - name: Build plugin
         run: |
           npm run build
-          wp dist-archive . ./plugin.zip
-          mkdir tmp-build/label-printing
-          unzip plugin.zip -d tmp-build/label-printing
-
+          wp dist-archive . ./label-printing.zip
+          mkdir tmp-build
+          unzip label-printing.zip -d tmp-build
       - name: Run plugin check
         uses: swissspidy/wp-plugin-check-action@main
         with:
