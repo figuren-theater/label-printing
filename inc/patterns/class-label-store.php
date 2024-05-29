@@ -169,7 +169,7 @@ class Label_Store {
 	 */
 	protected static function label_factory_from_wp_posts( \WP_Query $query ) : array {
 		return \array_filter( \array_map(
-			static::get_label_by_post( $post );
+			__NAMESPACE__ . '\\get_label_by_post',
 			$query->posts
 		));
 	}
