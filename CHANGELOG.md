@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.9...HEAD)
+## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.10...HEAD)
+
+## [0.3.10](https://github.com/figuren-theater/label-printing/compare/0.3.9...0.3.10) - 2024-05-29
+
+### 🚀 Added
+
+- TRY Run on branches:main instead on commit_message ([#60](https://github.com/figuren-theater/label-printing/pull/60))
 
 ## [0.3.9](https://github.com/figuren-theater/label-printing/compare/0.3.8...0.3.9) - 2024-05-29
 
