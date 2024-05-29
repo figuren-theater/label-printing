@@ -1,10 +1,10 @@
 # Label Printing
 
-Stable tag: 0.3.2
+Stable tag: 0.3.3
 Tested up to: 6.5.3
 Requires at least: 6.3
 Requires PHP: 8.1
-License: GPL v3 or later
+License: GPL-3.0+
 Tags: Label, print, print.css, block
 Contributors: carstenbach
 

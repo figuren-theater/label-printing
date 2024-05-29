@@ -8,7 +8,7 @@
  * @license           GPL-3.0+
  *
  * @wordpress-plugin
- * Plugin Name:       figuren.theater | Label Printing
+ * Plugin Name:       Label Printing
  * Plugin URI:        https://github.com/figuren-theater/label-printing
  * Description:       Create printable labels with blocks.
  * Version:           0.3.2

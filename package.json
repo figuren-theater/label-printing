@@ -1,6 +1,6 @@
 {
 	"name": "label-printing",
-	"version": "0.3.2",
+	"version": "0.3.3",
 	"description": "Create printable labels with blocks.",
 	"author": "Carsten Bach",
 	"license": "GPL-3.0-or-later",
