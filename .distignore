@@ -26,6 +26,7 @@ dependencies.yml
 Gruntfile.js
 package.json
 package-lock.json
+phpstan.neon
 phpunit.xml
 phpunit.xml.dist
 multisite.xml
