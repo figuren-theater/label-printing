@@ -10,3 +10,4 @@ jobs:
     uses: figuren-theater/.github/.github/workflows/prerelease-changelog-update.yml@main
     secrets: inherit
 
+# @TODO add 'wordpress-org-deploy.yml' && 'wordpress-org-version-numbers.yml' as callable workflows from here.
