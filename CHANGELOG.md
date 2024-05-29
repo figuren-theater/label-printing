@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.7...HEAD)
+## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.8...HEAD)
+
+## [0.3.8](https://github.com/figuren-theater/label-printing/compare/0.3.7...0.3.8) - 2024-05-29
+
+### 🚀 Added
+
+- Add screencast ([#58](https://github.com/figuren-theater/label-printing/pull/58))
 
 ## [0.3.7](https://github.com/figuren-theater/label-printing/compare/0.3.6...0.3.7) - 2024-05-29
 
