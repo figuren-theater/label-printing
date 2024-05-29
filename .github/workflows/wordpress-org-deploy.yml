@@ -56,9 +56,9 @@ jobs:
       # mkdir tmp-build
       # unzip ${{ github.event.repository.name }}.zip -d tmp-build
 
-    - name: Upload release asset
-      uses: softprops/action-gh-release@v1
-      with:
-        files: ${{ github.workspace }}/${{ github.event.repository.name }}.zip
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ github.workspace }}/${{ github.event.repository.name }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
