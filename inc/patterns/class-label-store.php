@@ -48,7 +48,7 @@ class Label_Store {
 
 		// Prepare Data.
 		$post = \get_post( $post );
-		if ( ! $post instanceof WP_Post ) {
+		if ( ! $post instanceof \WP_Post ) {
 			return null;
 		}
 
@@ -57,6 +57,7 @@ class Label_Store {
 			META_KEY,
 			true
 		);
+
 		if ( ! is_array( $meta ) || empty( $meta ) ) {
 			return null;
 		}
@@ -169,7 +170,7 @@ class Label_Store {
 	 */
 	protected static function label_factory_from_wp_posts( \WP_Query $query ) : array {
 		return \array_filter( \array_map(
-			function( $post ){
+			function( $post ) {
 				return static::get_label_by_post( $post );
 			},
 			$query->posts
@@ -180,7 +181,7 @@ class Label_Store {
 	 * Import a Label into the DB as new 'wp_block' post.
 	 *
 	 * @param  string $name Human-readable title of the label.
-	 * @param  array $props List of required label properties: 'width', 'height', 'a4_border_tb', 'a4_border_lr' & 'orientation'.
+	 * @param  mixed[] $props List of required label properties: 'width', 'height', 'a4_border_tb', 'a4_border_lr' & 'orientation'.
 	 *
 	 * @return Label
 	 */
@@ -259,15 +260,8 @@ class Label_Store {
 		 * Add your own labels or adjust the defaults using this filter.
 		 *
 		 * Use this hook: 'Figuren_Theater\Label_Printing\Patterns\bootstrap_labels'.
-		 * @since 0.2.0
 		 *
-		 * @phpstan-ignore-next-line phpDoc.parseError
-		 * @param {array} $bootstrap_labels List of Labels (an array of arrays) that will be inserted into the DB on import by default.
-		 *
-		 * @phpstan-ignore-next-line phpDoc.parseError
-		 * @return {array}                  List of Labels (an array of arrays) that will be inserted into the DB on import.
-		 *
-		 * @example <caption>Add your own or adjust the default labels.</caption>
+		 * @example Add this before the plugin is loaded.
 		 * \add_filter(
 		 *     'Figuren_Theater\Label_Printing\Patterns\bootstrap_labels',
 		 *     function( array $default_labels ) : array {
@@ -307,6 +301,11 @@ class Label_Store {
 		 *         ];
 		 *     }
 		 * );
+		 * @since 0.2.0
+		 *
+		 * @param array $bootstrap_labels List of Labels (an array of arrays) that will be inserted into the DB on import by default.
+		 *
+		 * @return array                  List of Labels (an array of arrays) that will be inserted into the DB on import.
 		 */
 		return \apply_filters(
 			__NAMESPACE__ . '\\bootstrap_labels',
