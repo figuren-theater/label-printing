@@ -206,8 +206,8 @@ class Label_Store {
 	public static function import_bootstrap_labels() : array {
 		return \array_map(
 			function( array $label ): void {
-				static::import_bootstrap_label( $label['name'], $label ),
-			}
+				static::import_bootstrap_label( $label['name'], $label );
+			},
 			static::get_bootstrap_labels()
 		);
 	}
