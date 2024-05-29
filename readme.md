@@ -10,6 +10,8 @@ Contributors: carstenbach
 
 ![](.wordpress-org/banner-1544x500.png)
 
+https://raw.githubusercontent.com/figuren-theater/label-printing/main/.wordpress-org/screenshot-3.mp4
+
 Gutenberg is famous for printing, so let's print multiple identical labels on paper. Using blocks.
 
 ## Description
