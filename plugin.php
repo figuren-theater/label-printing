@@ -20,7 +20,6 @@
  * Domain Path:       /languages
  * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
- * Update URI:        https://github.com/figuren-theater/label-printing
  */
 
 namespace Figuren_Theater\Label_Printing;
