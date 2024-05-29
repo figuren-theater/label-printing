@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.6...HEAD)
+## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.7...HEAD)
+
+## [0.3.7](https://github.com/figuren-theater/label-printing/compare/0.3.6...0.3.7) - 2024-05-29
+
+### 🚀 trying ..
+
+- 4th TRY to run 'Deploy to WordPress.org Repository' latest  ([#57](https://github.com/figuren-theater/label-printing/pull/57))
 
 ## [0.3.6](https://github.com/figuren-theater/label-printing/compare/0.3.5...0.3.6) - 2024-05-29
 
