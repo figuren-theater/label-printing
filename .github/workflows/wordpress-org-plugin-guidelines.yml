@@ -1,13 +1,15 @@
 name: 'WordPress.org plugin directory guidelines'
 on: # rebuild any PRs and main branch changes
-  workflow_dispatch:
+  # workflow_dispatch:
+  # push:
   pull_request:
-  push:
-    branches:
-    - main
+    # branches:
+    # - main
 
 jobs:
   wp-org-plugin-guidelines:
+    # The advantage of this approach compared to Bartleby's answer (currently the most upvoted) is that it also works with pull_request_review and pull_request_review_comment events. https://stackoverflow.com/questions/62331829/how-to-get-the-target-branch-of-the-github-pull-request-from-an-actions#comment137155808_62332270
+    if: ${{ github.event.pull_request.base.ref == 'main' }}
     runs-on: ubuntu-latest
 
     steps:
