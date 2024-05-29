@@ -14,7 +14,7 @@ Gutenberg is famous for printing, so let's print multiple identical labels on pa
 
 ## Description
 
-The ***Label Printing* block** plugin is made to help you print multiple identical labels on paper easily. This plugin is ideal for various use cases, such as creating labels for posters, flyers, or any other printed materials you need. Whether you're managing a theater production or prepare and organize the next local meetup, this plugin can help streamline the process for any project that requires labels.
+The ***Label Printing* block** plugin is made to help you print multiple identical labels on paper easily. This plugin is ideal for various use cases, such as creating labels for posters, flyers, or any other printed materials. Whether you're managing a theater production or prepare & organize the next local WordCamp, this plugin can help streamline the process for any project that requires physical, printed labels.
 
 ### Features
 
@@ -26,7 +26,7 @@ The ***Label Printing* block** plugin is made to help you print multiple identic
 
 The plugin allows you to configure a set of labels, probably identical to the paper-labels in your desk. After you prepared at least one label you are ready to print. 
 
-*For now (and until #5 is solved,) this step has no UI, so you have to rely on the default label sizes provided by this plugin or add you own via the `Figuren_Theater\Label_Printing\Patterns\bootstrap_labels` filter.*
+*For now ([#5](https://github.com/figuren-theater/label-printing/issues/5)) this step has no UI, so you have to rely on the default label sizes provided by this plugin or add you own via the `Figuren_Theater\Label_Printing\Patterns\bootstrap_labels` filter.*
 
 A label - within this plugin - consists of a human readable title and the physical measurements of a *normal* printing-label. In other words, width, height and orientation of the label are saved, as well as the borders on an A4 sheet, if any.
 
@@ -85,7 +85,7 @@ The **Label Printing** plugin provides one filter to customize default Labels, t
 );
 ```
 
-### Information Architecture 
+### Implementation Details 
 
 #### `wp_block` post_type with `_label-printing` post_meta
 
@@ -101,13 +101,17 @@ The content to print on each label is saved within that post_type where you adde
 
 ### Background & Motivation 
 
-[We are doing theater](https://figuren.theater/), [for a living](https://juliaraab.de/). For more than ten years we do one to three productions each year and try to keep the performances in the schedules of festivals and theaters for multiple years. 
-
-From the very beginning we produced posters and flyers with all relevant data about the show but no dates or venues at all. This behavior allowed us to produce a 2.000 posters and 5.000 flyers once before the premiere and often supported by funding and use the materials for years, with the help of labels. 
-
-Using labels helps supporting the nature because it reduces the trash of unused materials, it reduced regular re-prints, delivery and the related emissions. *With some automation in place the time to create the labels will be a minimum, I thought.* 
-
-I ended up with more than 15 different label-templates, Adobe Indesign Templates; and me the only one able to manage and handle these templates. And at this point I switched machines, got rid of windows and wanted to even get rid of Indesign. So I would have had to create all the templates now in scribus to get to the same workflow. And after all the possible migration hurdles, I’ll be the only one able to manage the new and fancy scribus templates. No way. So created this block. No everyone on the team is able to create labels.
+>[We are doing theater](https://figuren.theater/), [for a living](https://juliaraab.de/). For more than ten years we do one to three productions each year and try to keep the performances in the schedules of festivals and theaters for multiple years. 
+>
+>From the very beginning we produced posters and flyers with all relevant data about the show but no dates or venues at all. This behavior allowed us to produce 2.000 posters and 5.000 flyers once before the premiere and often supported by funding and use the materials for years, with the help of labels. 
+>
+>Using labels helps supporting the nature because it reduces the trash of unused materials, it reduced regular re-prints, delivery and the related emissions. 
+>
+>*With some automation in place the time to create the labels will be a minimum, I thought.* 
+>
+>I ended up with more than 15 different label-templates, Adobe Indesign Templates; and me the only one able to manage and handle these templates. And at this point I switched machines, got rid of windows and wanted to even get rid of Indesign. So I would have had to create all the templates now in scribus to get to the same workflow. And after all the possible migration hurdles, I’ll be the only one able to manage the new and fancy scribus templates. No way. So created this block. Now everyone on the team is able to create labels.
+>
+> [@carstenbach](https://profiles.wordpress.org/carstenbach/)
 
 ## Installation
 
@@ -201,11 +205,12 @@ Depending on your selected **pre-defined label** the `…/label-proxy` block wil
 ## Standards and best-practices, this plugin follows
 
 - ✅ This project is licensed under the **GPL-3.0-or-later**, see the LICENSE file for details
-- ✅ WordPress Coding Standards 
+- ✅ WordPress (Coding) Standards 
    1. [PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/) (Version 2….)
    2. [JavaScript Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/)
    3. [CSS Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/)
-- ✅ phpstan on level 9
+   4. Constantly checked against the [Plugin-review guidelines](https://github.com/figuren-theater/label-printing/pull/47)
+- ✅ phpstan on level 8
 - ❌ We have no unit-, integration- or e2e-tests in place, consider helping with a PR
 - ✅ We [keep a Changelog](https://keepachangelog.com/) in the CHANGELOG.md file.
 - ✅ We use git to control all code by version 
@@ -220,7 +225,7 @@ Depending on your selected **pre-defined label** the `…/label-proxy` block wil
    - via composer including the [figuren.theater/code-quality](https://github.com/figuren-theater/code-quality/) package
 - ✅ We love [WordPress‘ *Decisions, not options* philosophy](https://wordpress.org/about/philosophy/), that’s why there is no settings page at all
 - ✅ We only used WordPress‘ core packages to create this plugin, the blocks are scaffolded using the `create-block` package
-- ✅ We do not introduce any new, custom UI, instead we only use core-stuff and even incorporate the wp-admin-color-scheme.
+- ✅ We do not introduce any new, custom UI, instead we only use core-stuff and even incorporate the `wp-admin-color-scheme`.
 - ✅ We use a `README.md` as valid [readme.txt for the wp.org/plugins](https://developer.wordpress.org/plugins/wordpress-org/how-your-readme-txt-works/) repository
 - ✅ All code is translation-ready and already translated to 
    - de_DE
