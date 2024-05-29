@@ -205,11 +205,12 @@ Depending on your selected **pre-defined label** the `…/label-proxy` block wil
 ## Standards and best-practices, this plugin follows
 
 - ✅ This project is licensed under the **GPL-3.0-or-later**, see the LICENSE file for details
-- ✅ WordPress Coding Standards 
+- ✅ WordPress (Coding) Standards 
    1. [PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/) (Version 2….)
    2. [JavaScript Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/)
    3. [CSS Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/)
-- ✅ phpstan on level 9
+   4. Constantly checked against the [Plugin-review guidelines](https://github.com/figuren-theater/label-printing/pull/47)
+- ✅ phpstan on level 8
 - ❌ We have no unit-, integration- or e2e-tests in place, consider helping with a PR
 - ✅ We [keep a Changelog](https://keepachangelog.com/) in the CHANGELOG.md file.
 - ✅ We use git to control all code by version 
@@ -224,7 +225,7 @@ Depending on your selected **pre-defined label** the `…/label-proxy` block wil
    - via composer including the [figuren.theater/code-quality](https://github.com/figuren-theater/code-quality/) package
 - ✅ We love [WordPress‘ *Decisions, not options* philosophy](https://wordpress.org/about/philosophy/), that’s why there is no settings page at all
 - ✅ We only used WordPress‘ core packages to create this plugin, the blocks are scaffolded using the `create-block` package
-- ✅ We do not introduce any new, custom UI, instead we only use core-stuff and even incorporate the wp-admin-color-scheme.
+- ✅ We do not introduce any new, custom UI, instead we only use core-stuff and even incorporate the `wp-admin-color-scheme`.
 - ✅ We use a `README.md` as valid [readme.txt for the wp.org/plugins](https://developer.wordpress.org/plugins/wordpress-org/how-your-readme-txt-works/) repository
 - ✅ All code is translation-ready and already translated to 
    - de_DE
