@@ -5,7 +5,7 @@ on:
     types: [published]
 
 jobs:
-  deploy_to_wp_repository:
+  deploy-to-wp-repository:
     name: Deploy to WP.org
     # if: '!github.event.release.prerelease'
     runs-on: ubuntu-latest
