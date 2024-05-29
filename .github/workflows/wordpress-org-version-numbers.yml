@@ -5,9 +5,9 @@ on:
   #   types: [published]
   #   types: [edited]
   push:
-    commit_message: 'Update version to '
-    # branches:
-    #   - main
+    # commit_message: 'Update version to '
+    branches:
+      - main
 
 jobs:
   update-version-numbers-for-wp-repository:
