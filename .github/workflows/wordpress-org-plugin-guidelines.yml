@@ -45,5 +45,5 @@ jobs:
       - name: Run plugin check
         uses: swissspidy/wp-plugin-check-action@main
         with:
-          build-dir: './tmp-build/plugin'
+          build-dir: './tmp-build'
           wp-version: 'trunk'
