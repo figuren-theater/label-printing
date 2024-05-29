@@ -11,18 +11,19 @@ name: Deploy to WordPress.org Repository
 #     runs-on: ubuntu-latest
 #     steps:
 on:
-  release:
-    types: [edited]
+  # release:
+  #   types: [edited]
   push:
-    # commit_message: 'Update version to '
-    branches:
-      - main
+    commit_message: 'Update version to '
+    # branches:
+      # - main
 
 jobs:
   deploy-to-wp-repository:
     name: Deploy to WP.org
     runs-on: ubuntu-latest
-    if: github.event.release && github.event.release.edited == true && contains(github.event.head_commit.message, 'Update version to ')
+    # if: github.event.release.edited == true && contains(github.event.head_commit.message, 'Update version to ')
+    if: contains(github.event.head_commit.message, 'Update version to ')
     steps:
  
       # - name: Checkout code
