@@ -1,6 +1,6 @@
 # Label Printing
 
-Stable tag: 0.3.7
+Stable tag: 0.3.8
 Tested up to: 6.5.3
 Requires at least: 6.3
 Requires PHP: 8.1
