@@ -18,7 +18,11 @@ jobs:
     # v1
     # if: 'latest' !== github.event.release.tag_name && contains(github.event.head_commit.message, 'Update version to ')
     # v2
-    if: ( github.event.release.tag_name && 'latest' != github.event.release.tag_name && contains(github.event.head_commit.message, 'Update version to ') )
+    # if: ( github.event.release.tag_name && 'latest' != github.event.release.tag_name && contains(github.event.head_commit.message, 'Update version to ') )
+    # v3 DEBUGING piece by piece
+    # if: ( github.event.release.tag_name && 'latest' != github.event.release.tag_name && contains(github.event.head_commit.message, 'Update version to ') )
+    # v3 A: No condition at all
+    # if: ( github.event.release.tag_name && 'latest' != github.event.release.tag_name && contains(github.event.head_commit.message, 'Update version to ') )
     # 'Update version to ' is part of an automated commit by @figuren-theater-bot
     # during the 'figuren-theater/.github/.github/workflows/prerelease-changelog-update.yml@main' action.
     # This kind of commit runs everywhere in the ft-space.
@@ -26,6 +30,11 @@ jobs:
     # Now, we check if there are some files, that are typically only relevant for *real* plugins.
     # Means, plugins which are published to the wp.org/plugins repo, and not ft-modules of any kind.
     steps:
+      - name: Debug variables
+        run: |
+          echo "github.event.release.tag_name: ${{ github.event.release.tag_name }}"
+          echo "github.event.head_commit.message: ${{ github.event.head_commit.message }}"
+
       - name: Checkout code
         # Push to protected branches
         # If your repository uses protected branches you have to make some changes
@@ -61,12 +70,12 @@ jobs:
           #   git commit -am "Update version to $NEW_VERSION"
           # fi
 
-      - name: Push to protected branch
-        uses: CasperWA/push-protected@v2
-        with:
-          token: ${{ secrets.BOT_TOKEN }}
-          # branch: ${{ github.event.release.target_commitish }}
-          branch: main
-          #unprotect_reviews: true # has anoying side-effect: settings stays disabled if workflow fails
-          acceptable_conclusions: success,skipped # A comma-separated list of acceptable statuses. If any of these statuses are present, the action will not fail.
+      # - name: Push to protected branch
+      #   uses: CasperWA/push-protected@v2
+      #   with:
+      #     token: ${{ secrets.BOT_TOKEN }}
+      #     # branch: ${{ github.event.release.target_commitish }}
+      #     branch: main
+      #     #unprotect_reviews: true # has anoying side-effect: settings stays disabled if workflow fails
+      #     acceptable_conclusions: success,skipped # A comma-separated list of acceptable statuses. If any of these statuses are present, the action will not fail.
 
