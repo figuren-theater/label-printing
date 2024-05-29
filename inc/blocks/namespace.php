@@ -14,7 +14,7 @@ use Figuren_Theater\Label_Printing;
  *
  * @return void
  */
-function register() :void {
+function register(): void {
 	\add_action( 'init', __NAMESPACE__ . '\\bootstrap' );
 }
 
@@ -23,9 +23,8 @@ function register() :void {
  *
  * @return void
  */
-function bootstrap() :void {
+function bootstrap(): void {
 	register_blocks();
-
 }
 
 /**
@@ -33,7 +32,7 @@ function bootstrap() :void {
  *
  * @return string[] Array of block slugs.
  */
-function get_blocks() : array {
+function get_blocks(): array {
 	return [
 		'label-printing',
 		'label-proxy',
@@ -45,7 +44,7 @@ function get_blocks() : array {
  *
  * @return void
  */
-function register_blocks() : void {
+function register_blocks(): void {
 	\array_map( __NAMESPACE__ . '\\register_block', get_blocks() );
 }
 
@@ -56,7 +55,7 @@ function register_blocks() : void {
  *
  * @return void
  */
-function register_block( string $block ) : void {
+function register_block( string $block ): void {
 
 	require_once Label_Printing\DIRECTORY . '/build/' . $block . '/index.php'; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
 
@@ -83,6 +82,6 @@ function register_block( string $block ) : void {
  *
  * @return string Namespaced block name.
  */
-function get_ns_name( string $block ) : string {
+function get_ns_name( string $block ): string {
 	return \ucfirst( \str_replace( 'label-', '', $block ) );
 }

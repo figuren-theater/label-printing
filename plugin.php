@@ -3,7 +3,7 @@
  * Register the label-printing plugin
  *
  * @package           figuren-theater/label-printing
- * @author            figuren.theater Crew
+ * @author            Carsten Bach
  * @copyright         2023 figuren.theater
  * @license           GPL-3.0+
  *
@@ -13,8 +13,8 @@
  * Description:       Create printable labels with blocks.
  * Version:           0.2.0
  * Requires at least: 6.2
- * Requires PHP:      7.4
- * Author:            figuren.theater Crew
+ * Requires PHP:      8.1
+ * Author:            Carsten Bach
  * Author URI:        https://figuren.theater/crew
  * Text Domain:       label-printing
  * Domain Path:       /languages
@@ -30,7 +30,7 @@ const DIRECTORY = __DIR__;
 /**
  * REMOVE
  *
- * @todo #15 Add composer autoloading strategy
+ * @todo Add composer autoloading strategy https://github.com/figuren-theater/label-printing/issues/15
  */
 require_once DIRECTORY . '/inc/blocks/namespace.php'; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
 require_once DIRECTORY . '/inc/block-styles/namespace.php'; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
@@ -41,4 +41,4 @@ require_once DIRECTORY . '/inc/patterns/class-label-store.php'; // phpcs:ignore 
 require_once DIRECTORY . '/inc/patterns/namespace.php'; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
 require_once DIRECTORY . '/inc/namespace.php'; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
 
-\add_action( 'init', __NAMESPACE__ . '\\register', 0 );
+\add_action( 'init', __NAMESPACE__ . '\\register', 0 ); // 0 is important

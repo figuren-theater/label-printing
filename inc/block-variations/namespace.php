@@ -14,7 +14,7 @@ use Figuren_Theater\Label_Printing;
  *
  * @return void
  */
-function register() :void {
+function register(): void {
 		\add_action( 'init', __NAMESPACE__ . '\\register_assets', 5 );
 		\add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_assets' );
 }
@@ -24,7 +24,7 @@ function register() :void {
  *
  * @return void
  */
-function register_assets() :void {
+function register_assets(): void {
 	\array_map( __NAMESPACE__ . '\\register_asset', get_assets() );
 }
 
@@ -33,7 +33,7 @@ function register_assets() :void {
  *
  * @return string[] Array of asset slugs.
  */
-function get_assets() : array {
+function get_assets(): array {
 	return [
 		'label-overview',
 	];
@@ -48,7 +48,7 @@ function get_assets() : array {
  *
  * @return void
  */
-function register_asset( string $asset ) : void {
+function register_asset( string $asset ): void {
 
 	$dir = Label_Printing\DIRECTORY;
 
@@ -59,12 +59,12 @@ function register_asset( string $asset ) : void {
 	$error_message = "You need to run `npm start` or `npm run build` for the '$asset' block-asset first.";
 
 	if ( ! file_exists( $script_asset_path ) ) {
-		if ( \in_array( wp_get_environment_type(), [ 'local', 'development' ], true ) ) {
+		if ( \in_array( \wp_get_environment_type(), [ 'local', 'development' ], true ) ) {
 			throw new \Error(
-				$error_message
+				\esc_html( $error_message )
 			);
 		} else {
-			\error_log( $error_message );
+			\error_log( $error_message ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			return;
 		}
 	}
@@ -72,14 +72,15 @@ function register_asset( string $asset ) : void {
 	$index_js     = "$path/$asset.js";
 	$script_asset = require $script_asset_path; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable
 
-	wp_register_script(
+	\wp_register_script(
 		"label-printing--$asset",
-		plugins_url( $index_js, "$dir/plugin.php" ),
+		\plugins_url( $index_js, "$dir/plugin.php" ),
 		$script_asset['dependencies'],
-		$script_asset['version']
+		$script_asset['version'],
+		true
 	);
 
-	wp_set_script_translations(
+	\wp_set_script_translations(
 		"label-printing--$asset",
 		'label-printing',
 		"$dir/languages"
@@ -91,7 +92,7 @@ function register_asset( string $asset ) : void {
  *
  * @return void
  */
-function enqueue_assets() : void {
+function enqueue_assets(): void {
 	\array_map( __NAMESPACE__ . '\\enqueue_asset', get_assets() );
 }
 
@@ -102,6 +103,6 @@ function enqueue_assets() : void {
  *
  * @return void
  */
-function enqueue_asset( string $asset ) : void {
-	wp_enqueue_script( "label-printing--$asset" );
+function enqueue_asset( string $asset ): void {
+	\wp_enqueue_script( "label-printing--$asset" );
 }

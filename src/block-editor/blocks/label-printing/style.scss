@@ -5,6 +5,15 @@
  * .wp-block-figuren-theater-label-printing {}
  */
 
+// Disable WordPress' root padding
+body.is-label-printing {
+	--wp--style--root--padding-left: 0 !important;
+	--wp--style--root--padding-right: 0 !important;
+
+	* {
+		box-shadow: none !important;
+	}
+}
 
 .wp-block-group.alignwide[class*="is-style-label-overview-"] {
 	max-width: var(--label-printing-doc-width) !important;
@@ -15,27 +24,57 @@
 		overflow: hidden;
 		max-height: var(--label-printing-height) !important;
 		max-width: var(--label-printing-width) !important;
+
+		// padding: 20px; // safety disatnce
+		padding: calc(var(--label-printing-height) * 0.1) calc(var(--label-printing-width) * 0.1); // safety disatnce
+		box-sizing: border-box;
+
 	}
+
+	/* 		// for debug
+	> .wp-block-group > *:before{
+		content: var(--label-printing-orientation);
+	} */
+}
+
+@page portrait {
+	size: a4 portrait;
+	page-orientation: upright;
+	// margin: auto;
+}
+
+@page landscape {
+	size: a4 landscape;
+	// page-orientation: rotate-left;
 }
 
 @media print {
 
-	html,
-	body,
-	.wp-site-blocks {
+	.is-label-printing {
+		page: var(--label-printing-orientation);
+	}
+	// @page {
+	// 	// size: landscape;
+	// 	size: A4 var(--label-printing-orientation);
+	// }
+
+	// html,
+	body.is-label-printing,
+	.is-label-printing .wp-site-blocks {
 		margin: 0 !important;
 		padding: 0 !important;
 	}
 
 	.wp-block-group.alignwide[class*="is-style-label-overview-"] {
-		page-break-before: always;
+		// page-break-before: always;
 		page-break-after: always;
+		break-after: page;
 		padding: var(--label-printing-a4-border-tb, 0) var(--label-printing-a4-border-lr, 0) !important;
 
-		/* 		// for debug
+		/* 	// for debug
 		> .wp-block-group > * {
 			outline: 1px dashed var(--wp--preset--color--foreground, rgb(128, 128, 128));
-		} */
+		}	 */
 	}
 }
 
@@ -44,7 +83,7 @@
 	.wp-block-group.alignwide[class*="is-style-label-overview-"] {
 
 		box-shadow: 0.1em 0.1em 0.3em var(--wp--preset--color--primary, rgb(128, 128, 128));
-		margin-top: 5vw !important;
+		margin-top: 10vw !important;
 		margin-bottom: 5vw !important;
 
 		> .wp-block-group > * {

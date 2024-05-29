@@ -21,7 +21,7 @@ const STATIC_PATTERN_CATEGORY = TRANSIENT_KEY;
  *
  * @return void
  */
-function register() :void {
+function register(): void {
 	\add_action( 'init', __NAMESPACE__ . '\\bootstrap' );
 }
 
@@ -30,13 +30,17 @@ function register() :void {
  *
  * @return void
  */
-function bootstrap() :void {
+function bootstrap(): void {
 
-	$store = new Label_Store;
+	$store = new Label_Store();
 
 	// Flush the cache after each import.
 	\add_action(
 		__NAMESPACE__ . '\\save_post_wp_block_label',
+		[ $store, 'delete_transient' ]
+	);
+	\add_action(
+		'save_post_wp_block',
 		[ $store, 'delete_transient' ]
 	);
 
@@ -53,23 +57,23 @@ function bootstrap() :void {
 		[
 			// Importantly object refers to a JSON object,
 			// this is equivalent to an associative array in PHP.
-			'type' => 'object',
-			'description' => 'Physical measurements of a printing label.',
-			'single' => true,
+			'type'         => 'object',
+			'description'  => 'Physical measurements of a printing label.',
+			'single'       => true,
 			'show_in_rest' => [
 				'schema' => [
 					'type'       => 'object',
 					'properties' => [
-						'width' => [
+						'width'        => [
 							'type' => 'number',
 						],
-						'height'  => [
+						'height'       => [
 							'type' => 'number',
 						],
 						'a4_border_tb' => [
 							'type' => 'number',
 						],
-						'a4_border_lr'  => [
+						'a4_border_lr' => [
 							'type' => 'number',
 						],
 						'orientation'  => [
@@ -89,7 +93,7 @@ function bootstrap() :void {
  *
  * @return void
  */
-function register_block_patterns( Label $label ) : void {
+function register_block_patterns( Label $label ): void {
 
 	// Instantiate new pattern generator.
 	$generator = new Generator( $label );
@@ -122,7 +126,7 @@ function register_block_patterns( Label $label ) : void {
  *
  * @return void
  */
-function register_block_pattern_category() : void {
+function register_block_pattern_category(): void {
 	\register_block_pattern_category(
 		STATIC_PATTERN_CATEGORY,
 		[

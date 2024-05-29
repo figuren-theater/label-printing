@@ -1,13 +1,12 @@
 # Label Printing
 
-Requires at least: 6.2
-Tested up to: 6.3.1
-Requires PHP: 7.4
-Stable tag: 0.2.0
-License: GPL3+
-Contributors: carstenbach
+Stable tag: 0.2.1
+Tested up to: 6.5.3
+Requires at least: 6.3
+Requires PHP: 8.1
+License: GPL v3 or later
 Tags: Label, print, print.css, block
-
+Contributors: carstenbach
 
 ![](.wordpress-org/banner-1544x500.png)
 
@@ -116,7 +115,7 @@ The installation process for the ***Label Printing* block** plugin is straightfo
 
 ### Installation from within WordPress
 
-1. Visit **Plugins** > Add New**.
+1. Visit **Plugins** > **Add New**.
 2. Search for **Label Printing**.
 3. Install and activate the Label Printing plugin.
 
@@ -128,12 +127,17 @@ The installation process for the ***Label Printing* block** plugin is straightfo
 
 ### Install via composer
 
-1. Install via command line
-    ```sh
-    composer require figuren-theater/label-printing
-    ```
+1. Install via command line `composer require figuren-theater/label-printing`
 2. Visit **Plugins**.
 3. Activate the Label Printing plugin.
+
+## Screenshots
+
+1. Insert the Label Printing block
+2. Choose your pre-defined Label
+3. Switch visually between different label presets
+4. Fill in your label content
+5. Check everything in your browsers print dialog, exclude pages with header and footer and finally print your labels.
 
 ## Frequently Asked Questions
 
@@ -141,48 +145,58 @@ The installation process for the ***Label Printing* block** plugin is straightfo
 
 The default labels, if not changed via the `Figuren_Theater\Label_Printing\Patterns\bootstrap_labels` filter, are:
 
-```php
-$bootstrap_labels = [
-	[
-		'name'         => 'A6 Landscape',
-		'width'        => 148,
-		'height'       => 105,
-		'a4_border_tb' => 0,
-		'a4_border_lr' => 0,
-		'orientation'  => 'landscape',
-	],
-	[
-		'name'         => 'A6 Landscape (with Top-Bottom-Borders)',
-		'width'        => 148,
-		'height'       => 90,
-		'a4_border_tb' => 15,
-		'a4_border_lr' => 0,
-		'orientation'  => 'landscape',
-	],
-	[
-		'name'         => 'A8 Portrait',
-		'width'        => 52.5,
-		'height'       => 74,
-		'a4_border_tb' => 0,
-		'a4_border_lr' => 0,
-		'orientation'  => 'portrait',
-	],
-	[
-		'name'         => 'A8 Landscape',
-		'width'        => 74,
-		'height'       => 52.5,
-		'a4_border_tb' => 0,
-		'a4_border_lr' => 0,
-		'orientation'  => 'landscape',
-	],
-];
-```
+	`
+	\$bootstrap_labels = [
+		[
+			'name'         => 'A6 Landscape',
+			'width'        => 148,
+			'height'       => 105,
+			'a4_border_tb' => 0,
+			'a4_border_lr' => 0,
+			'orientation'  => 'landscape',
+		],
+		[
+			'name'         => 'A6 Landscape (with Top-Bottom-Borders)',
+			'width'        => 148,
+			'height'       => 90,
+			'a4_border_tb' => 15,
+			'a4_border_lr' => 0,
+			'orientation'  => 'landscape',
+		],
+		[
+			'name'         => 'A8 Portrait',
+			'width'        => 52.5,
+			'height'       => 74,
+			'a4_border_tb' => 0,
+			'a4_border_lr' => 0,
+			'orientation'  => 'portrait',
+		],
+		[
+			'name'         => 'A8 Landscape',
+			'width'        => 74,
+			'height'       => 52.5,
+			'a4_border_tb' => 0,
+			'a4_border_lr' => 0,
+			'orientation'  => 'landscape',
+		],
+	];
+	`
 
 ### Why should I use a `blank.php` template
 
 Make sure to only *print* what you really need. If the Print Preview in your browser shows your normal header including logo and navigation, consider selecting only the necessary page in your native print dialog.
 
 Using a `blank.php` template ensures that only the necessary content is printed. If your theme provides this template, it's the best choice to avoid unnecessary headers, post titles, and footers in your printed materials.
+
+### How does the block work?
+
+`figuren-theater/label-printing` is a custom block that uses normal `innerBlocks` to keep the blocks, you are going to add to your label.
+
+To preview the block in the editor and also to render it on the front-end, it uses a hidden, second block called `figuren-theater/label-proxy`. This is a lightweight version of a reusable block, that only works within one post, and not across multiples.
+
+Depending on your selected **pre-defined label** the `…/label-proxy` block will be duplicated as often as the dimensions of the selected label allow. In other words, your label will be fitted into an A4 print-template as often as possible.
+
+
 
 ## Standards and best-practices, this plugin follows
 
@@ -212,13 +226,10 @@ Using a `blank.php` template ensures that only the necessary content is printed.
    - de_DE
    - de_DE_formal
 
-## Screenshots
+## Upgrade Notice
 
-1. Insert the Label Printing block
-2. Choose your pre-defined Label
-3. Switch visually between different label presets
-4. Fill in your label content
-5. Check everything in your browsers print dialog, exclude pages with header and footer and finally print your labels.
+(silence is golden)
+
+## Changelog
 
 <!-- changelog -->
-

@@ -31,10 +31,50 @@ class Label_Store {
 		// If $labels is still an empty list,
 		// nobody has used our filter, so we query our DB instead.
 		if ( empty( $labels ) ) {
-			$labels = $this->get_stored_labels();
+			$labels = static::get_stored_labels();
 		}
 
 		return $labels;
+	}
+
+	/**
+	 * Get a well-formatted Label object from its WP_Post object.
+	 *
+	 * @param  int|\WP_Post $post ID of a post or a WP_Post object.
+	 *
+	 * @return Label|null A full Label object or null if no post, or no post_meta was found.
+	 */
+	public static function get_label_by_post( int|\WP_Post $post ) : ?Label {
+
+		// Prepare Data.
+		$post = \get_post( $post );
+		if ( ! $post instanceof \WP_Post ) {
+			return null;
+		}
+
+		$meta = \get_post_meta(
+			$post->ID,
+			META_KEY,
+			true
+		);
+
+		if ( ! is_array( $meta ) || empty( $meta ) ) {
+			return null;
+		}
+
+		$label = new Label(
+			(string) $post->post_title,
+			(float) $meta['width'],
+			(float) $meta['height'],
+		);
+
+		$label->post_ID = $post->ID;
+
+		$label->a4_border_tb = (float) $meta['a4_border_tb'];
+		$label->a4_border_lr = (float) $meta['a4_border_lr'];
+		$label->orientation  = (string) $meta['orientation'];
+
+		return $label;
 	}
 
 	/**
@@ -56,7 +96,7 @@ class Label_Store {
 	 *
 	 * @return Label[] An array of Label objects.
 	 */
-	function get_stored_labels() : array {
+	public static function get_stored_labels() : array {
 
 		// Check if the value is already stored.
 		$stored_labels = \get_transient( TRANSIENT_KEY );
@@ -67,7 +107,7 @@ class Label_Store {
 			$stored_labels = static::query_labels();
 
 			// Store for long,
-			// because this will beflushed with every new (and updated) 'wp_block' post.
+			// because this will be flushed with every new (and updated) 'wp_block' post.
 			\set_transient(
 				TRANSIENT_KEY,
 				$stored_labels,
@@ -129,41 +169,36 @@ class Label_Store {
 	 * @return Label[] An array of Label objects.
 	 */
 	protected static function label_factory_from_wp_posts( \WP_Query $query ) : array {
-
 		return \array_filter( \array_map(
-			function( int|\WP_Post $post ) : Label|null {
-
-				// Prepare Data.
-				$post = \get_post( $post );
-				if ( ! $post instanceof WP_Post ) {
-					return null;
-				}
-
-				$meta = \get_post_meta(
-					$post->ID,
-					META_KEY,
-					true
-				);
-				if ( ! is_array( $meta ) || empty( $meta ) ) {
-					return null;
-				}
-
-				$label = new Label(
-					(string) $post->post_title,
-					(float) $meta['width'],
-					(float) $meta['height'],
-				);
-
-				$label->post_ID = $post->ID;
-
-				$label->a4_border_tb = (float) $meta['a4_border_tb'];
-				$label->a4_border_lr = (float) $meta['a4_border_lr'];
-				$label->orientation  = (string) $meta['orientation'];
-
-				return $label;
+			function( $post ) {
+				return static::get_label_by_post( $post );
 			},
 			$query->posts
 		));
+	}
+
+	/**
+	 * Import a Label into the DB as new 'wp_block' post.
+	 *
+	 * @param  string $name Human-readable title of the label.
+	 * @param  mixed[] $props List of required label properties: 'width', 'height', 'a4_border_tb', 'a4_border_lr' & 'orientation'.
+	 *
+	 * @return Label
+	 */
+	public static function import_bootstrap_label( string $name, array $props ) : Label {
+		$label = new Label(
+			(string) $name,
+			(float) $props['width'],
+			(float) $props['height'],
+		);
+
+		$label->a4_border_tb = (float) $props['a4_border_tb'];
+		$label->a4_border_lr = (float) $props['a4_border_lr'];
+		$label->orientation  = (string) $props['orientation'];
+
+		$label->insert();
+
+		return $label;
 	}
 
 	/**
@@ -173,20 +208,8 @@ class Label_Store {
 	 */
 	public static function import_bootstrap_labels() : array {
 		return \array_map(
-			function( array $bootstrap_label ) : Label {
-				$label = new Label(
-					(string) $bootstrap_label['name'],
-					(float) $bootstrap_label['width'],
-					(float) $bootstrap_label['height'],
-				);
-
-				$label->a4_border_tb = (float) $bootstrap_label['a4_border_tb'];
-				$label->a4_border_lr = (float) $bootstrap_label['a4_border_lr'];
-				$label->orientation  = (string) $bootstrap_label['orientation'];
-
-				$label->insert();
-
-				return $label;
+			function( array $label ) : Label {
+				return static::import_bootstrap_label( (string) $label['name'], $label );
 			},
 			static::get_bootstrap_labels()
 		);
@@ -200,7 +223,7 @@ class Label_Store {
 	public static function get_bootstrap_labels() : array {
 		$bootstrap_labels = [
 			[
-				'name'         => 'A6 Landscape',
+				'name'         => __( 'A6 Landscape', 'label-printing' ),
 				'width'        => 148,
 				'height'       => 105,
 				'a4_border_tb' => 0,
@@ -208,7 +231,7 @@ class Label_Store {
 				'orientation'  => 'landscape',
 			],
 			[
-				'name'         => 'A6 Landscape (with Top-Bottom-Borders)',
+				'name'         => __( 'A6 Landscape (with Top-Bottom-Borders)', 'label-printing' ),
 				'width'        => 148,
 				'height'       => 90,
 				'a4_border_tb' => 15,
@@ -216,7 +239,7 @@ class Label_Store {
 				'orientation'  => 'landscape',
 			],
 			[
-				'name'         => 'A8 Portrait',
+				'name'         => __( 'A8 Portrait', 'label-printing' ),
 				'width'        => 52.5,
 				'height'       => 74,
 				'a4_border_tb' => 0,
@@ -224,7 +247,7 @@ class Label_Store {
 				'orientation'  => 'portrait',
 			],
 			[
-				'name'         => 'A8 Landscape',
+				'name'         => __( 'A8 Landscape', 'label-printing' ),
 				'width'        => 74,
 				'height'       => 52.5,
 				'a4_border_tb' => 0,
@@ -236,16 +259,9 @@ class Label_Store {
 		/**
 		 * Add your own labels or adjust the defaults using this filter.
 		 *
-		 * @hook  Figuren_Theater\Label_Printing\Patterns\bootstrap_labels
-		 * @since 0.2.0
+		 * Use this hook: 'Figuren_Theater\Label_Printing\Patterns\bootstrap_labels'.
 		 *
-		 * @phpstan-ignore-next-line phpDoc.parseError
-		 * @param {array} $bootstrap_labels List of Labels (an array of arrays) that will be inserted into the DB on import by default.
-		 *
-		 * @phpstan-ignore-next-line phpDoc.parseError
-		 * @return {array}                  List of Labels (an array of arrays) that will be inserted into the DB on import.
-		 *
-		 * @example <caption>Add your own or adjust the default labels.</caption>
+		 * @example Add this before the plugin is loaded.
 		 * \add_filter(
 		 *     'Figuren_Theater\Label_Printing\Patterns\bootstrap_labels',
 		 *     function( array $default_labels ) : array {
@@ -285,6 +301,11 @@ class Label_Store {
 		 *         ];
 		 *     }
 		 * );
+		 * @since 0.2.0
+		 *
+		 * @param array $bootstrap_labels List of Labels (an array of arrays) that will be inserted into the DB on import by default.
+		 *
+		 * @return array                  List of Labels (an array of arrays) that will be inserted into the DB on import.
 		 */
 		return \apply_filters(
 			__NAMESPACE__ . '\\bootstrap_labels',
@@ -312,8 +333,8 @@ class Label_Store {
 				'public'            => false,
 				'hierarchical'      => false,
 				'labels'            => [
-					'name'          => _x( 'Pattern Categories', 'taxonomy general name' ), // phpcs:ignore WordPress.WP.I18n.MissingArgDomain
-					'singular_name' => _x( 'Pattern Category', 'taxonomy singular name' ), // phpcs:ignore WordPress.WP.I18n.MissingArgDomain
+					'name'          => _x( 'Pattern Categories', 'taxonomy general name', 'label-printing' ),
+					'singular_name' => _x( 'Pattern Category', 'taxonomy singular name', 'label-printing' ),
 				],
 				'query_var'         => false,
 				'rewrite'           => false,
