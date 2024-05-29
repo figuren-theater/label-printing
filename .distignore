@@ -6,11 +6,14 @@
 .eslintignore
 .eslintrc
 .git
+.github
 .gitignore
 .gitlab-ci.yml
 .nvmrc
 .travis.yml
 .DS_Store
+assets
+src
 Thumbs.db
 behat.yml
 bitbucket-pipelines.yml
