@@ -220,7 +220,7 @@ class Label_Store {
 	public static function get_bootstrap_labels() : array {
 		$bootstrap_labels = [
 			[
-				'name'         => 'A6 Landscape',
+				'name'         => _x( 'A6 Landscape', 'label-printing' ),
 				'width'        => 148,
 				'height'       => 105,
 				'a4_border_tb' => 0,
@@ -228,7 +228,7 @@ class Label_Store {
 				'orientation'  => 'landscape',
 			],
 			[
-				'name'         => 'A6 Landscape (with Top-Bottom-Borders)',
+				'name'         => _x( 'A6 Landscape (with Top-Bottom-Borders)', 'label-printing' ),
 				'width'        => 148,
 				'height'       => 90,
 				'a4_border_tb' => 15,
@@ -236,7 +236,7 @@ class Label_Store {
 				'orientation'  => 'landscape',
 			],
 			[
-				'name'         => 'A8 Portrait',
+				'name'         => _x( 'A8 Portrait', 'label-printing' ),
 				'width'        => 52.5,
 				'height'       => 74,
 				'a4_border_tb' => 0,
@@ -244,7 +244,7 @@ class Label_Store {
 				'orientation'  => 'portrait',
 			],
 			[
-				'name'         => 'A8 Landscape',
+				'name'         => _x( 'A8 Landscape', 'label-printing' ),
 				'width'        => 74,
 				'height'       => 52.5,
 				'a4_border_tb' => 0,
@@ -332,8 +332,8 @@ class Label_Store {
 				'public'            => false,
 				'hierarchical'      => false,
 				'labels'            => [
-					'name'          => _x( 'Pattern Categories', 'taxonomy general name' ), // phpcs:ignore WordPress.WP.I18n.MissingArgDomain
-					'singular_name' => _x( 'Pattern Category', 'taxonomy singular name' ), // phpcs:ignore WordPress.WP.I18n.MissingArgDomain
+					'name'          => _x( 'Pattern Categories', 'taxonomy general name', 'label-printing' ),
+					'singular_name' => _x( 'Pattern Category', 'taxonomy singular name', 'label-printing' ),
 				],
 				'query_var'         => false,
 				'rewrite'           => false,
