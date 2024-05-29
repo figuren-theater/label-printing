@@ -17,7 +17,7 @@ jobs:
     # Condition looks for numbered releases (1.27.3 for example) AND a specific part of a commit msg.
     if: 'latest' !== github.event.release.tag_name && contains(github.event.head_commit.message, 'Update version to ')
     # 'Update version to ' is part of an automated commit by @figuren-theater-bot
-    # during the 'figuren-theater/... prerelease-and-update-changelog' action.
+    # during the 'figuren-theater/.github/.github/workflows/prerelease-changelog-update.yml@main' action.
     # This kind of commit runs everywhere in the ft-space.
     #
     # Now, we check if there are some files, that are typically only relevant for *real* plugins.
