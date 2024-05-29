@@ -39,6 +39,10 @@ function bootstrap(): void {
 		__NAMESPACE__ . '\\save_post_wp_block_label',
 		[ $store, 'delete_transient' ]
 	);
+	\add_action(
+		'save_post_wp_block',
+		[ $store, 'delete_transient' ]
+	);
 
 	// Register a new pattern category.
 	register_block_pattern_category();
