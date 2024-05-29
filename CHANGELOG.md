@@ -2,7 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.2...HEAD)
+## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.3...HEAD)
+
+## [0.3.3](https://github.com/figuren-theater/label-printing/compare/0.3.2...0.3.3) - 2024-05-29
+
+### :bug: Fixes
+
+- Do not exclude README & use a valid SPDX license ([#52](https://github.com/figuren-theater/label-printing/pull/52))
+- Rename README to align with wp.org ([#51](https://github.com/figuren-theater/label-printing/pull/51))
 
 ## [0.3.2](https://github.com/figuren-theater/label-printing/compare/0.3.1...0.3.2) - 2024-05-29
 
