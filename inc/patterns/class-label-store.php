@@ -220,7 +220,7 @@ class Label_Store {
 	public static function get_bootstrap_labels() : array {
 		$bootstrap_labels = [
 			[
-				'name'         => _x( 'A6 Landscape', 'label-printing' ),
+				'name'         => __( 'A6 Landscape', 'label-printing' ),
 				'width'        => 148,
 				'height'       => 105,
 				'a4_border_tb' => 0,
@@ -228,7 +228,7 @@ class Label_Store {
 				'orientation'  => 'landscape',
 			],
 			[
-				'name'         => _x( 'A6 Landscape (with Top-Bottom-Borders)', 'label-printing' ),
+				'name'         => __( 'A6 Landscape (with Top-Bottom-Borders)', 'label-printing' ),
 				'width'        => 148,
 				'height'       => 90,
 				'a4_border_tb' => 15,
@@ -236,7 +236,7 @@ class Label_Store {
 				'orientation'  => 'landscape',
 			],
 			[
-				'name'         => _x( 'A8 Portrait', 'label-printing' ),
+				'name'         => __( 'A8 Portrait', 'label-printing' ),
 				'width'        => 52.5,
 				'height'       => 74,
 				'a4_border_tb' => 0,
@@ -244,7 +244,7 @@ class Label_Store {
 				'orientation'  => 'portrait',
 			],
 			[
-				'name'         => _x( 'A8 Landscape', 'label-printing' ),
+				'name'         => __( 'A8 Landscape', 'label-printing' ),
 				'width'        => 74,
 				'height'       => 52.5,
 				'a4_border_tb' => 0,
