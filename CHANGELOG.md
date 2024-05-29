@@ -2,7 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.2.0...HEAD)
+## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.0...HEAD)
+
+## [0.3.0](https://github.com/figuren-theater/label-printing/compare/0.2.0...0.3.0) - 2024-05-29
+
+### 🚀 Added
+
+- New 'Deploy' action to WordPress.org Repository ([#48](https://github.com/figuren-theater/label-printing/pull/48))
+- NEW .org/plugin-review action ([#47](https://github.com/figuren-theater/label-printing/pull/47))
+- Develop ([#41](https://github.com/figuren-theater/label-printing/pull/41))
+  - Disable WordPress' root padding [cff7e92](https://github.com/figuren-theater/label-printing/pull/41/commits/cff7e92a8a0d683debd1af92c166812f66aa10c8)
+  - Add 10% inner saftey distance to all labels [779f2bf](https://github.com/figuren-theater/label-printing/pull/41/commits/779f2bf4b5c4c065c213995ee0184bbe539c4c06)
+  - Make template strings translateable [1ddbc50](https://github.com/figuren-theater/label-printing/pull/41/commits/1ddbc50b67e3e5eb92f7da296a0ae39c6180f453)
+  - Add body-class when block is in use [293ca9a](https://github.com/figuren-theater/label-printing/pull/41/commits/293ca9a467f95e0947cde1b33471e9f17164c192)
+  - Recognise paper orientation in browser print dialog [4942323](https://github.com/figuren-theater/label-printing/pull/41/commits/49423234f3fb377ca9880b96044b8c73cebfab85)
+  - NEW FAQ 'How does the block work?' [a607b2d](https://github.com/figuren-theater/label-printing/pull/41/commits/a607b2d0690d6cbb807c00b1609702d0f3f48314)
+  - Try to better align with plugin-readme guidelines [45a21b7](https://github.com/figuren-theater/label-printing/pull/41/commits/45a21b741abf87f59159df6f2fa025f904442379)
+  - Increase minimum required PHP to 8.1 )
+  
+
+### 🐛 Fixed
+
+- Develop ([#41](https://github.com/figuren-theater/label-printing/pull/41))
 
 ## [0.2.0](https://github.com/figuren-theater/label-printing/compare/0.1.0...0.2.0) - 2023-10-13
 
