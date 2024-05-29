@@ -205,8 +205,8 @@ class Label_Store {
 	 */
 	public static function import_bootstrap_labels() : array {
 		return \array_map(
-			function( array $label ): void {
-				static::import_bootstrap_label( $label['name'], $label );
+			function( array $label ) : Label {
+				return static::import_bootstrap_label( (string) $label['name'], $label );
 			},
 			static::get_bootstrap_labels()
 		);
@@ -256,7 +256,7 @@ class Label_Store {
 		/**
 		 * Add your own labels or adjust the defaults using this filter.
 		 *
-		 * @hook  Figuren_Theater\Label_Printing\Patterns\bootstrap_labels
+		 * Use this hook: 'Figuren_Theater\Label_Printing\Patterns\bootstrap_labels'.
 		 * @since 0.2.0
 		 *
 		 * @phpstan-ignore-next-line phpDoc.parseError
