@@ -1,15 +1,30 @@
 name: Deploy to WordPress.org Repository
 
+# on:
+#   release:
+#     types: [published]
+
+# jobs:
+#   deploy-to-wp-repository:
+#     name: Deploy to WP.org
+#     if: ${{ ! github.event.release.prerelease }}
+#     runs-on: ubuntu-latest
+#     steps:
 on:
   release:
-    types: [published]
+    types: [edited]
+  push:
+    # commit_message: 'Update version to '
+    branches:
+      - main
 
 jobs:
   deploy-to-wp-repository:
     name: Deploy to WP.org
-    if: ${{ ! github.event.release.prerelease }}
     runs-on: ubuntu-latest
+    if: github.event.release && github.event.release.edited == true && contains(github.event.head_commit.message, 'Update version to ')
     steps:
+ 
       # - name: Checkout code
       #   uses: actions/checkout@v4
       # - name: Build
