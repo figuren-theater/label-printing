@@ -1,6 +1,6 @@
 # Label Printing
 
-Stable tag: 0.3.7
+Stable tag: 0.3.8
 Tested up to: 6.5.3
 Requires at least: 6.3
 Requires PHP: 8.1
@@ -9,6 +9,8 @@ Tags: Label, print, print.css, block
 Contributors: carstenbach
 
 ![](.wordpress-org/banner-1544x500.png)
+
+https://raw.githubusercontent.com/figuren-theater/label-printing/main/.wordpress-org/screenshot-3.mp4
 
 Gutenberg is famous for printing, so let's print multiple identical labels on paper. Using blocks.
 
