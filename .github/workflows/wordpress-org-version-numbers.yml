@@ -7,7 +7,7 @@ on:
   push:
     # commit_message: 'Update version to '
     branches:
-      - main
+      - NONEXISTENTmain
 
 jobs:
   update-version-numbers-for-wp-repository:
