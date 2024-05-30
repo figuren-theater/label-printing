@@ -2,7 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.10...HEAD)
+## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.11...HEAD)
+
+## [0.3.11](https://github.com/figuren-theater/label-printing/compare/0.3.10...0.3.11) - 2024-05-30
+
+### 🚀 Trying & Testing
+
+- Fix/update wporg related versions ([#63](https://github.com/figuren-theater/label-printing/pull/63))
+- TEST v3 A: No condition at all ([#61](https://github.com/figuren-theater/label-printing/pull/61))
 
 ## [0.3.10](https://github.com/figuren-theater/label-printing/compare/0.3.9...0.3.10) - 2024-05-29
 
