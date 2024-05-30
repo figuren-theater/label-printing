@@ -14,7 +14,7 @@ on:
   # release:
   #   types: [edited]
   push:
-    commit_message: 'Update wporg-related-version to '
+    commit_message: 'Update version-numbers to '
     # branches:
       # - main
 
@@ -23,7 +23,10 @@ jobs:
     name: Deploy to WP.org
     runs-on: ubuntu-latest
     # if: github.event.release.edited == true && contains(github.event.head_commit.message, 'Update wporg-related-version to ')
-    if: contains(github.event.head_commit.message, 'Update wporg-related-version to ')
+    # if: contains(github.event.head_commit.message, 'Update wporg-related-version to ')
+    if: |
+      contains(github.event.head_commit.message, 'Update version-numbers to ') &&
+      contains(github.event.head_commit.modified, 'readme.md')
     steps:
  
       # - name: Checkout code

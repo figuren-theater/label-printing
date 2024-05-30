@@ -7,7 +7,7 @@ on:
   push:
     # commit_message: 'Update version to '
     branches:
-      - main
+      - NONEXISTENTmain
 
 jobs:
   update-version-numbers-for-wp-repository:
@@ -33,6 +33,7 @@ jobs:
       - name: Debug variables
         run: |
           echo "github.event.release.tag_name: ${{ github.event.release.tag_name }}"
+          echo "github.event.release.target_commitish: ${{ github.event.release.target_commitish }}"
           echo "github.event.head_commit.message: ${{ github.event.head_commit.message }}"
 
       - name: Checkout code
