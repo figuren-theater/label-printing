@@ -1,12 +1,12 @@
 name: Deploy to WordPress.org Repository
 
 on:
-  # release:
-  #   types: [edited]
-  push:
-    # commit_message: 'Update version-numbers to '
-    branches:
-      - main
+  release:
+    types: [published]
+  # push:
+  #   # commit_message: 'Update version-numbers to '
+  #   branches:
+  #     - main
 
 jobs:
   deploy-to-wp-repository:
