@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.21...HEAD)
+## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.23...HEAD)
+
+## [0.3.23](https://github.com/figuren-theater/label-printing/compare/0.3.21...0.3.23) - 2024-05-30
+
+TEST
 
 ## [0.3.21](https://github.com/figuren-theater/label-printing/compare/0.3.20...0.3.21) - 2024-05-30
 
