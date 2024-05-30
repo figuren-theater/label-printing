@@ -2,13 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.5...HEAD)
-
-## [0.3.5](https://github.com/figuren-theater/label-printing/compare/0.3.4...0.3.5) - 2024-05-29
-
-### 🚀 CI Change
-
-- Check against 'WordPress.org plugin directory guidelines' only on published release ([#55](https://github.com/figuren-theater/label-printing/pull/55))
+## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.4...HEAD)
 
 ## [0.3.4](https://github.com/figuren-theater/label-printing/compare/0.3.3...0.3.4) - 2024-05-29
 
