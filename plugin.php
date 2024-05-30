@@ -11,7 +11,7 @@
  * Plugin Name:       Label Printing
  * Plugin URI:        https://github.com/figuren-theater/label-printing
  * Description:       Create printable labels with blocks.
- * Version:           0.3.21
+ * Version:           0.3.23
  * Requires at least: 6.2
  * Requires PHP:      8.1
  * Author:            Carsten Bach
