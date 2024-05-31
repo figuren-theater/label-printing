@@ -8,5 +8,4 @@ on:
 jobs:
   call-workflow-update-changelog:
     uses: figuren-theater/.github/.github/workflows/prerelease-changelog-update.yml@main
-    # uses: figuren-theater/.github/.github/workflows/prerelease-changelog-update.yml@fix/update-wporg-related-versions
     secrets: inherit
