@@ -40,7 +40,7 @@ jobs:
           mkdir tmp-build
           unzip label-printing.zip -d tmp-build
       - name: Run plugin check
-        uses: swissspidy/wp-plugin-check-action@main
+        uses: wordpress/plugin-check-action@v1
         with:
           build-dir: './tmp-build/label-printing'
           wp-version: 'trunk'
