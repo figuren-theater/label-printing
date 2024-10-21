@@ -221,7 +221,7 @@ Depending on your selected **pre-defined label** the `…/label-proxy` block wil
    - PRs are needed to get code into the project
    - dependabot checks all included dependencies for updated versions and looks for vulnerable packages too
 - ✅ We try to do semantic versioning
-- ✅ Versionnumbers in `plugin.php`, `README.md` and the `CHANGELOG.md` are automatically updated for each release (via GitHub actions)
+- ✅ Versionnumbers in ~~`label-printing.php`~~, `README.md` and the `CHANGELOG.md` are automatically updated for each release (via GitHub actions)
 - ✅ Installable 
    - ~~via wordpress.org/plugins or~~ (NOT YET, see #6 ) 
    - via composer including the [figuren.theater/code-quality](https://github.com/figuren-theater/code-quality/) package
