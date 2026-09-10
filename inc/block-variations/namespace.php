@@ -74,7 +74,7 @@ function register_asset( string $asset ): void {
 
 	\wp_register_script(
 		"label-printing--$asset",
-		\plugins_url( $index_js, "$dir/plugin.php" ),
+		\plugins_url( $index_js, "$dir/label-printing.php" ),
 		$script_asset['dependencies'],
 		$script_asset['version'],
 		true
