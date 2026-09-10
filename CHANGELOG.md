@@ -2,7 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.4...HEAD)
+## [Unreleased](https://github.com/figuren-theater/label-printing/compare/0.3.5...HEAD)
+
+## [0.3.5](https://github.com/figuren-theater/label-printing/compare/0.3.4...0.3.5) - 2026-09-10
+
+### 🚀 Added
+
+- Fix/update wporg related versions ([#63](https://github.com/figuren-theater/label-printing/pull/63))
+- TEST v3 A: No condition at all ([#61](https://github.com/figuren-theater/label-printing/pull/61))
+- TRY Run on branches:main instead on commit_message ([#60](https://github.com/figuren-theater/label-printing/pull/60))
+- Hook into (f.t) prerelease-changelog-update workflow and also update wporg related versions in other files ([#59](https://github.com/figuren-theater/label-printing/pull/59))
+- Add screencast ([#58](https://github.com/figuren-theater/label-printing/pull/58))
+- 4th TRY to run 'Deploy to WordPress.org Repository' latest  ([#57](https://github.com/figuren-theater/label-printing/pull/57))
+- 3rd TRY to run 'Deploy to WordPress.org Repository' latest ([#56](https://github.com/figuren-theater/label-printing/pull/56))
+- Check against 'WordPress.org plugin directory guidelines' only on published release ([#55](https://github.com/figuren-theater/label-printing/pull/55))
 
 ## [0.3.4](https://github.com/figuren-theater/label-printing/compare/0.3.3...0.3.4) - 2024-05-29
 
