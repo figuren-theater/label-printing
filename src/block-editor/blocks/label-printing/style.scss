@@ -6,13 +6,13 @@
  */
 
 // Disable WordPress' root padding
-body.is-label-printing {
+:root :where(.is-label-printing) > *
+// body.is-label-printing
+{
 	--wp--style--root--padding-left: 0 !important;
 	--wp--style--root--padding-right: 0 !important;
 
-	* {
-		box-shadow: none !important;
-	}
+	box-shadow: none !important;
 }
 
 .wp-block-group.alignwide[class*="is-style-label-overview-"] {
@@ -76,6 +76,8 @@ body.is-label-printing {
 			outline: 1px dashed var(--wp--preset--color--foreground, rgb(128, 128, 128));
 		}	 */
 	}
+
+	body.is-label-printing #query-monitor-main { display: none !important; }
 }
 
 @media screen {

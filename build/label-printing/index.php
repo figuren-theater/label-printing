@@ -8,7 +8,6 @@
 namespace Figuren_Theater\Label_Printing\Blocks\Printing;
 
 use Figuren_Theater\Label_Printing\Patterns;
-use Figuren_Theater\Network\Blocks\Patterns as BlocksPatterns;
 
 /**
  * Render callback of the 'figuren-theater/label-printing' block.
@@ -19,7 +18,7 @@ use Figuren_Theater\Network\Blocks\Patterns as BlocksPatterns;
  *
  * @return string
  */
-function render( array $attributes ) : string {
+function render( array $attributes ): string {
 
 	// Get the label post object based on the provided attribute.
 	$label = \get_post( $attributes['wpLabelPost'] );
@@ -37,8 +36,8 @@ function render( array $attributes ) : string {
 	if ( ! \is_array( $meta ) || ! isset( $meta['height'] ) || ! isset( $meta['width'] ) ) {
 		return '';
 	}
-	$attributes['labelHeight']  = $meta['height'];
-	$attributes['labelWidth']   = $meta['width'];
+	$attributes['labelHeight'] = $meta['height'];
+	$attributes['labelWidth']  = $meta['width'];
 
 	$attributes['a4_border_tb'] = $meta['a4_border_tb'];
 	$attributes['a4_border_lr'] = $meta['a4_border_lr'];

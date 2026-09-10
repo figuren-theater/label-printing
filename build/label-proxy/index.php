@@ -16,7 +16,7 @@ namespace Figuren_Theater\Label_Printing\Blocks\Proxy;
  *
  * @return string
  */
-function render() : string {
+function render(): string {
 
 	$post = \get_post();
 
@@ -34,7 +34,7 @@ function render() : string {
 			\ob_start();
 			foreach ( $block['innerBlocks'] as $block ) {
 				echo \wp_kses_post(
-					\apply_filters(
+					\apply_filters( // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 						'the_content',
 						\render_block( $block )
 					)
@@ -46,5 +46,4 @@ function render() : string {
 
 	// If not already exited.
 	return '';
-
 }
